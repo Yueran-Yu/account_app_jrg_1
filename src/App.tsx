@@ -3,11 +3,14 @@ import {HashRouter as Router, Link, Switch, Route, Redirect} from "react-router-
 import styled from "styled-components";
 import './index.scss';
 
+const fontMain = '\'Abel\', sans-serif;'
+
 const Wrapper = styled.div`
   border: 1px solid red;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  
 `
 
 const Main = styled.div`
@@ -22,6 +25,7 @@ const UL = styled.ul`
   justify-content: space-around;
   text-align: center;
   padding: 6px 16px;
+  font-family: ${fontMain};
 `
 
 const App = () => {
