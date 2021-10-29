@@ -2,30 +2,18 @@ import React from 'react';
 import {HashRouter as Router, Link, Switch, Route, Redirect} from "react-router-dom";
 import styled from "styled-components";
 import './index.scss';
+import {Nav} from 'components/Nav';
 
-const fontMain = '\'Abel\', sans-serif;'
 
 const Wrapper = styled.div`
-  border: 1px solid red;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  
 `
 
 const Main = styled.div`
-  border: 1px solid green;
   flex-grow: 1;
   overflow: auto;
-`
-
-const UL = styled.ul`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  text-align: center;
-  padding: 6px 16px;
-  font-family: ${fontMain};
 `
 
 const App = () => {
@@ -49,18 +37,7 @@ const App = () => {
 						</Route>
 					</Switch>
 				</Main>
-
-				<UL>
-					<li>
-						<Link to='/money'>Money</Link>
-					</li>
-					<li>
-						<Link to='/tags'>Tags</Link>
-					</li>
-					<li>
-						<Link to='/statistics'>Statistics</Link>
-					</li>
-				</UL>
+				<Nav/>
 			</Wrapper>
 		</Router>
 	)
