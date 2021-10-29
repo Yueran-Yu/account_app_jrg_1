@@ -1,10 +1,6 @@
 import styled from "styled-components";
 import React from "react";
-import {Link} from "react-router-dom";
-
-require('icons/money.svg');
-require('icons/tags.svg');
-require('icons/statistics.svg');
+import {Icon} from './Icon';
 
 
 const fontMain = '\'Abel\', sans-serif;'
@@ -23,26 +19,13 @@ export const Nav = () => {
 	return (
 		<NavWrapper>
 			<li>
-				<Link to='/money'>
-					<svg className='icon'>
-						<use xlinkHref="#money"/>
-					</svg>
-				</Link>
+				<Icon name='money'/>
 			</li>
 			<li>
-				<Link to='/tags'>
-					<svg className='icon'>
-						<use xlinkHref="#tags"/>
-					</svg>
-				</Link>
+				<Icon name='tags'/>
 			</li>
 			<li>
-				<Link to='/statistics'>
-					<svg className='icon'>
-						<use xlinkHref="#statistics"/>
-					</svg>
-
-				</Link>
+				<Icon name='statistics'/>
 			</li>
 		</NavWrapper>
 	)
