@@ -2,7 +2,6 @@ import styled from "styled-components";
 import React from "react";
 import {Icon} from './Icon';
 
-
 const fontMain = '\'Abel\', sans-serif;'
 export const NavWrapper = styled.ul`
   display: flex;
@@ -13,6 +12,22 @@ export const NavWrapper = styled.ul`
   line-height: 24px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
   font-family: ${fontMain};
+
+  > li > a {
+    display: flex;
+
+    .icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    &.selected {
+      .icon {
+        fill: #ff7700;
+      }
+    }
+  }
+}
 `
 
 export const Nav = () => {
