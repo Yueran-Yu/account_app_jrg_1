@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import {mainColor} from "../CategorySection/CategorySection.style";
 
 export const Wrapper = styled.label`
   display: flex;
@@ -10,7 +11,7 @@ export const Wrapper = styled.label`
     white-space: nowrap;
 
     .icon {
-      fill: #5678de;
+      fill: ${mainColor};
     }
   }
 

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+const selectedColor = '#faa36c'
 export const Wrapper = styled.section`
   background: #ffffff;
   padding: 12px 16px;
@@ -18,7 +19,7 @@ export const Wrapper = styled.section`
       margin: 8px 12px;
 
       &.selected {
-        background: #7c9eff;
+        background: ${selectedColor};
         color: #ffffff;
         border: none;
       }
@@ -32,7 +33,7 @@ export const Wrapper = styled.section`
     border-bottom: 1px solid #333;
     color: #666;
     margin-bottom: 8px;
-		font-size: large;
-    font-family: "Academy Engraved LET",serif;
+    font-size: large;
+    font-family: "Academy Engraved LET", serif;
   }
 `

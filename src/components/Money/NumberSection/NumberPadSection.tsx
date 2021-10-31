@@ -30,7 +30,7 @@ export const NumberPadSection: React.FC = () => {
 				<button>C</button>
 				<button>0</button>
 				<button>.</button>
-				<button className='ok'>o</button>
+				<button className='ok'>OK</button>
 			</div>
 		</Wrapper>
 	)

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+export const mainColor = ' #fd8138';
 export const Wrapper = styled.section`
   font-size: 14px;
   margin: 10px auto;
@@ -7,18 +8,18 @@ export const Wrapper = styled.section`
 
   > .roundCorner {
     border-radius: 5px;
-    border: 0.5px solid #5678de;
+    border: 0.5px solid ${mainColor};
     display: flex;
     justify-content: center;
 
     > div {
       text-align: center;
       padding: 6px 10px;
-      color: #5678de;
+      color: ${mainColor};
       border-radius: 3px;
-			
+
       &.selected {
-        background: #5678de;
+        background: ${mainColor};
         color: white;
       }
     }

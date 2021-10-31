@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import {mainColor} from "../CategorySection/CategorySection.style";
 
 export const Wrapper = styled.section`
   .outputWrapper {
@@ -22,6 +23,7 @@ export const Wrapper = styled.section`
       padding-bottom: 6px;
     }
   }
+
   .pad {
     display: flex;
     flex-wrap: wrap;
@@ -44,7 +46,7 @@ export const Wrapper = styled.section`
       }
 
       &.ok {
-        background-color: #5678de;
+        background-color: ${mainColor};
         color: white;
         border: none;
       }
