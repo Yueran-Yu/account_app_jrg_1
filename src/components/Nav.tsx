@@ -4,6 +4,7 @@ import {Icon} from './Icon';
 
 const fontMain = '\'Abel\', sans-serif;'
 export const NavWrapper = styled.ul`
+	background-color: white;
   display: flex;
   flex-direction: row;
   justify-content: space-around;

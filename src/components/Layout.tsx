@@ -13,11 +13,11 @@ const Main = styled.div`
   overflow: auto;
 `
 
-export const Layout = (props: any) => {
+export const Layout = ({children, className}: any) => {
 	return (
 		<Wrapper>
-			<Main>
-				{props.children}
+			<Main className={className}>
+				{children}
 			</Main>
 			<Nav/>
 		</Wrapper>
