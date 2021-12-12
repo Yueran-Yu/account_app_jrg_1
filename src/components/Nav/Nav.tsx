@@ -4,7 +4,7 @@ import {Icon} from './Icon';
 
 const fontMain = '\'Abel\', sans-serif;'
 export const NavWrapper = styled.ul`
-	background-color: white;
+  background-color: white;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -24,7 +24,7 @@ export const NavWrapper = styled.ul`
 
     &.selected {
       .icon {
-        fill: #ff7700;
+        fill: #5678de;
       }
     }
   }

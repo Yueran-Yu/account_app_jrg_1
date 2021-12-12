@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
-const selectedColor = '#faa36c'
+const selectedColor = '#5678de'
+
 export const Wrapper = styled.section`
   background: #ffffff;
   padding: 12px 16px;
@@ -26,14 +27,8 @@ export const Wrapper = styled.section`
     }
   }
 
-  > button {
-    background: none;
-    border: none;
-    padding: 2px 4px;
-    border-bottom: 1px solid #333;
-    color: #666;
-    margin-bottom: 8px;
-    font-size: large;
-    font-family: "Academy Engraved LET", serif;
+  .icon {
+    fill: ${selectedColor};
+    font-size: 30px;
   }
 `

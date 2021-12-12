@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import {Wrapper} from './TagSection.style';
 
+require('icons/add1.svg');
+
 interface MyTag {
 	id: number,
 	name: string
@@ -13,34 +15,42 @@ export const TagsSection: React.FC = () => {
 		{id: 3, name: 'Travel'},
 		{id: 4, name: 'Food'},
 	])
-	const [selectedTags, setSelectedTags] = useState<MyTag[]>([])
 
-	const onToggleTag = (tag: MyTag) => {
-		const currentTag = selectedTags.find(t => t.id === tag.id)
-		if (currentTag) {
-			setSelectedTags(selectedTags.filter(t => t.id !== tag.id))
-		} else {
-			setSelectedTags([...selectedTags, tag])
+	const [selectedTag, setSelectedTag] = useState<MyTag>({id: 0, name: ''})
+
+	const onSelectTag = (tag: MyTag) => {
+		if (selectedTag.id !== tag.id) {
+			console.log('tag has been selected!')
+			setSelectedTag(tag)
 		}
 	}
-	const addTags = () => {
+
+	const generateRandomNumber = () =>
+		Math.round(Date.now() * Math.random());
+
+	const onAddTags = () => {
 		const tagName = window.prompt('Please New Tag Name: ')
 		if (tagName !== null && tagName !== '') {
-			setTags([...tags, {id: Math.random(), name: tagName}])
+			setTags([
+				...tags,
+				{id: generateRandomNumber(), name: tagName}
+			])
 		}
 	}
-	const getClassName = (tag: MyTag) => {
-		return selectedTags.find(t => t.id === tag.id) ? 'selected' : ''
-	}
+
 	return (
 		<Wrapper>
-			<button onClick={addTags}>New Tag</button>
 			<ol>
-				{/*获取tag的 id*/}
 				{tags.map(tag => <li
 					key={tag.id}
-					onClick={() => {onToggleTag(tag)}}
-					className={getClassName(tag)}>{tag.name}</li>)}
+					onClick={() => {onSelectTag(tag)}}
+					className={selectedTag.id === tag.id ? 'selected' : ''}
+				>{tag.name}</li>)
+				}
+
+				<svg className='icon' onClick={onAddTags}>
+					<use xlinkHref={`#add1`}/>
+				</svg>
 			</ol>
 		</Wrapper>
 	)

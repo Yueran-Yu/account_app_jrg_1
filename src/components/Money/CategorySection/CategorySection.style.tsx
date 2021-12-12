@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const mainColor = ' #fd8138';
+export const mainColor = ' #5678de';
 export const Wrapper = styled.section`
   font-size: 14px;
   margin: 10px auto;

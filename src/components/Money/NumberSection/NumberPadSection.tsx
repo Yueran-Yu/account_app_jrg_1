@@ -1,6 +1,6 @@
 /* eslint no-eval: 0 */
 import React from 'react';
-import {Icon} from "../../Icon";
+import {Icon} from "../../Nav/Icon";
 import {Wrapper} from './NumbePadSection.style';
 
 export const NumberPadSection: React.FC = () => {
