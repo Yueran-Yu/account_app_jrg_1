@@ -35,7 +35,9 @@ export const InputForm: React.FC = () => {
 	return (
 		<Label>
 			<span>Note</span>
-			<input type='text' placeholder='note here'/>
+			<input type='text'
+						 placeholder='note here'
+			/>
 		</Label>
 	)
 }
