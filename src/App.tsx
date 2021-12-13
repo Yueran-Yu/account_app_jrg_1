@@ -1,7 +1,7 @@
 import React from 'react';
 import {HashRouter as Router, Switch, Route, Redirect} from "react-router-dom";
 import './index.scss';
-import Money from "./pages/Money";
+import Money from "./pages/MoneyPage/Money";
 import Statistics from "./pages/Statistics";
 import Tags from "./pages/Tags";
 import NotMatch from "./pages/NotMatch";
