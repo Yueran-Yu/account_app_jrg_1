@@ -50,6 +50,11 @@ const TagListPage = () => {
 
 	const randomColor = () => ('hsl(' + Math.floor(Math.random() * 500.508) + ',50%,65%)')
 
+	const generateRandomNumber = () =>
+		Math.round(Date.now() * Math.random());
+
+	const onAddNewTags = () => {
+	}
 
 	let history = useHistory()
 	return (
@@ -60,7 +65,10 @@ const TagListPage = () => {
 			</div>
 			<TagWrapper>
 				{
-					IconsList.map(c => <li style={{color: randomColor()}}>{c}</li>)
+					IconsList.map(c =>
+						<li style={{color: randomColor()}} onClick={()=>onAddNewTags()}>
+							{c}
+						</li>)
 				}
 			</TagWrapper>
 		</Wrapper>

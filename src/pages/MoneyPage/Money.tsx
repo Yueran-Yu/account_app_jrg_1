@@ -17,7 +17,6 @@ const defaultFormData = {
 const Money = () => {
 	const [selected, setSelected] = useState(defaultFormData)
 	type Selected = typeof selected
-
 	const onChangeTemplate = (obj: Partial<Selected>) => {
 		setSelected({...selected, ...obj})
 	}
@@ -31,22 +30,22 @@ const Money = () => {
 		<MyLayout>
 			<CategorySection
 				value={selected.category}
-				onChangeCategory={newCategory => setSelected({...selected, category: newCategory})}/>
+				onChangeCategory={newCategory => onChangeTemplate({category: newCategory})}/>
 			<TagsSection
 				value={selected.tagId}
-				onChangeTag={newTagId => setSelected({...selected, tagId: newTagId})}/>
+				onChangeTag={newTagId => onChangeTemplate({tagId: newTagId})}/>
 			{/*{selected.date.toDateString()}*/}
 			<NoteDateWrapper>
 				<NoteSection
 					value={selected.note}
-					onChangeNote={newNote => setSelected({...selected, note: newNote})}/>
+					onChangeNote={newNote => onChangeTemplate({note: newNote})}/>
 				<DateSection
 					value={selected.date}
-					onChangeDate={newDate => setSelected({...selected, date: newDate})}/>
+					onChangeDate={newDate => onChangeTemplate({date: newDate})}/>
 			</NoteDateWrapper>
 			<NumberPadSection
 				value={selected.amount}
-				onChange={amount => onChangeTemplate({amount})}
+				onChange={newAmount => onChangeTemplate({amount: newAmount})}
 				onOk={submit}/>
 		</MyLayout>
 	)

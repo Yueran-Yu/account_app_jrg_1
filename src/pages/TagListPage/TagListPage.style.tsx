@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+const selectedColor = '#5678de'
+
 export const Wrapper = styled.div`
   div {
     display: flex;
@@ -47,5 +49,10 @@ export const TagWrapper = styled.ol`
     height: 40px;
     border-radius: 50%;
     padding-top: 5px;
+
+    &.selected {
+      background: #ececec;
+      color: ${selectedColor};
+    }
   }
 `
