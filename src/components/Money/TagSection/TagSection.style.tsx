@@ -9,26 +9,33 @@ export const Wrapper = styled.section`
   overflow: auto;
 
   > ol {
-    margin: 0 -12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 
     > li {
-      background: #D9D9D9;
-      border-radius: 18px;
-      display: inline-block;
-      padding: 3px 18px;
-      font-size: 14px;
-      margin: 8px 12px;
+      font-size: 30px;
+      margin: 3px;
+      width: 40px;
+      height: 40px;
+      justify-self: center;
+      text-align: center;
+      align-content: center;
+      padding-top: 4px;
+      border-radius: 50%;
+      color: #5d5c5c;
 
       &.selected {
-        background: ${selectedColor};
-        color: #ffffff;
-        border: none;
+        background: #ececec;
+        color: ${selectedColor};
+      }
+
+      .icon {
+        fill: ${selectedColor};
+        font-size: 35px;
+
       }
     }
   }
 
-  .icon {
-    fill: ${selectedColor};
-    font-size: 30px;
-  }
+
 `

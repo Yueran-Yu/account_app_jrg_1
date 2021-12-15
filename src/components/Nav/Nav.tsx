@@ -35,10 +35,10 @@ export const Nav = () => {
 	return (
 		<NavWrapper>
 			<li>
-				<Icon name='money'/>
+				<Icon name='list'/>
 			</li>
 			<li>
-				<Icon name='tags'/>
+				<Icon name='money'/>
 			</li>
 			<li>
 				<Icon name='statistics'/>

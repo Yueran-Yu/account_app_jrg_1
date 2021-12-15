@@ -9,6 +9,7 @@ try {importAll(require.context('icons', true, /\.svg$/));} catch (error) {consol
 type Props = {
 	name: string
 }
+
 export const Icon = ({name}: Props) => {
 	return (
 		<NavLink to={`/${name}`} activeClassName='selected'>

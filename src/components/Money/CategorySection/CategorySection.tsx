@@ -8,31 +8,23 @@ const CategoryListMap = {
 
 type Keys = keyof typeof CategoryListMap
 
-export const CategorySection: React.FC = () => {
-	// const [categoryList] = useState<({ '-': 'Expense' } | { '+': 'Income' })[]>([{'-': 'Expense'}, {'+': 'Income'}])
+export const CategorySection: React.FC<CategoryProps> = ({value, onChangeCategory}) => {
 	const [categoryList] = useState<Keys[]>(['-', '+'])
-	const [selectedCategory, setSelectedCategory] = useState('-')
+
 	const changeCategory = (category: string) => {
-		if (category === '-') {
-			setSelectedCategory('-')
-		} else if (category === '+') {
-			setSelectedCategory('+')
-		}
+		category === '-' ? onChangeCategory('-') : onChangeCategory('+')
 	}
 
 	return (
 		<Wrapper>
 			<div className='roundCorner'>
 				{
-					categoryList.map(c => (
-						<>
-							<div className={selectedCategory === c ? 'selected' : ''}
-									 onClick={() => changeCategory(c)}>{CategoryListMap[c]}
-							</div>
-						</>
+					categoryList.map(category => (
+						<div className={value === category ? 'selected' : ''}
+								 onClick={() => changeCategory(category)}>{CategoryListMap[category]}
+						</div>
 					))
 				}
-
 			</div>
 		</Wrapper>
 	)

@@ -1,12 +1,12 @@
 import {Layout} from "../components/Layout";
 import React from "react";
 
-const Tags = () => {
+const ExpenditureList = () => {
 	return (
 		<Layout>
-			<h2>Tags Page</h2>
+			<h2>Expenditure List Page</h2>
 		</Layout>
 	)
 }
 
-export default Tags;
+export default ExpenditureList;

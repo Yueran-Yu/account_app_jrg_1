@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import {Layout} from "../../components/Layout";
 
-export const NoteDate = styled.section`
+export const NoteDateWrapper = styled.section`
   font-size: 14px;
   display: flex;
   justify-content: space-between;

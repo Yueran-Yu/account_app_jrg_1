@@ -1,56 +1,52 @@
+import {MdPayment, MdWifiCalling, MdBuild, MdLocalDrink, MdCommute, MdFastfood} from "react-icons/md";
 import React, {useState} from 'react';
 import {Wrapper} from './TagSection.style';
-
+import {Link} from 'react-router-dom';
 require('icons/add1.svg');
 
-interface MyTag {
-	id: number,
-	name: string
-}
 
-export const TagsSection: React.FC = () => {
-	const [tags, setTags] = useState<MyTag[]>([
-		{id: 1, name: 'Residence'},
-		{id: 2, name: 'Cloth'},
-		{id: 3, name: 'Travel'},
-		{id: 4, name: 'Food'},
+export const TagsSection: React.FC<TagProps> = ({value, onChangeTag}) => {
+	const [tags] = useState<MyTag[]>([
+		{id: 1, tag: <MdPayment/>},
+		{id: 2, tag: <MdWifiCalling/>},
+		{id: 3, tag: <MdBuild/>},
+		{id: 4, tag: <MdLocalDrink/>},
+		{id: 5, tag: <MdCommute/>},
+		{id: 6, tag: <MdFastfood/>},
 	])
 
-	const [selectedTag, setSelectedTag] = useState<MyTag>({id: 0, name: ''})
-
 	const onSelectTag = (tag: MyTag) => {
-		if (selectedTag.id !== tag.id) {
+		if (value !== tag.id) {
 			console.log('tag has been selected!')
-			setSelectedTag(tag)
+			onChangeTag(tag.id)
 		}
 	}
 
-	const generateRandomNumber = () =>
-		Math.round(Date.now() * Math.random());
-
-	const onAddTags = () => {
-		const tagName = window.prompt('Please New Tag Name: ')
-		if (tagName !== null && tagName !== '') {
-			setTags([
-				...tags,
-				{id: generateRandomNumber(), name: tagName}
-			])
-		}
-	}
+	// const generateRandomNumber = () =>
+	// 	Math.round(Date.now() * Math.random());
+	//
+	// const onAddTags = () => {
+	// 	setTags([
+	// 		...tags,
+	// 		{id: generateRandomNumber(), tag: <MdFastfood/>}
+	// 	])
+	// }
 
 	return (
 		<Wrapper>
 			<ol>
-				{tags.map(tag => <li
-					key={tag.id}
-					onClick={() => {onSelectTag(tag)}}
-					className={selectedTag.id === tag.id ? 'selected' : ''}
-				>{tag.name}</li>)
+				{tags.map(t => <li key={t.id}
+													 onClick={() => {onSelectTag(t)}}
+													 className={value === t.id ? 'selected' : ''}>{t.tag}</li>)
 				}
 
-				<svg className='icon' onClick={onAddTags}>
-					<use xlinkHref={`#add1`}/>
-				</svg>
+				<li>
+					<Link to='/tagList'>
+						<svg className='icon'>
+							<use xlinkHref={`#add1`}/>
+						</svg>
+					</Link>
+				</li>
 			</ol>
 		</Wrapper>
 	)

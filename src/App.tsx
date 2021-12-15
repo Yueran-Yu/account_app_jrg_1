@@ -3,18 +3,22 @@ import {HashRouter as Router, Switch, Route, Redirect} from "react-router-dom";
 import './index.scss';
 import Money from "./pages/MoneyPage/Money";
 import Statistics from "./pages/Statistics";
-import Tags from "./pages/Tags";
+import ExpenditureList from "./pages/ExpenditureList";
 import NotMatch from "./pages/NotMatch";
+import TagListPage from "./pages/TagListPage/TagListPage";
 
 const App = () => {
 	return (
 		<Router>
 			<Switch>
+				<Route path='/list'>
+					<ExpenditureList/>
+				</Route>
 				<Route path='/money'>
 					<Money/>
 				</Route>
-				<Route path='/tags'>
-					<Tags/>
+				<Route exact path='/tagList'>
+					<TagListPage/>
 				</Route>
 				<Route path='/statistics'>
 					<Statistics/>

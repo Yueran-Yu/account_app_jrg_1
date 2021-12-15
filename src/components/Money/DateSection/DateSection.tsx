@@ -1,18 +1,17 @@
 import React from 'react';
 import {Wrapper} from "./DateSection.style";
 import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
-export const DateSection: React.FC = () => {
-	const onChange = (e: Date) => {
-		console.log(e)
-	}
+
+export const DateSection: React.FC<DateProps> = ({value,onChangeDate}) => {
 	return (
 		<Wrapper>
 			<DatePicker
 				className='date'
-				selected={new Date()}
+				selected={value}
 				name='date'
-				onChange={onChange}
+				onChange={(e: Date)=> onChangeDate(e)}
 			/>
 		</Wrapper>
 	)

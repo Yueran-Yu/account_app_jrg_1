@@ -8,8 +8,9 @@ export const Wrapper = styled.div`
     width: 80%;
     color: ${mainColor};
     border: 0.5px solid ${mainColor};
+    margin-top: 5px;
     margin-right: 5px;
-    border-radius: 5px 5px 5px 5px;
+    border-radius: 3px;
     font-weight: 700;
     padding: 0 5px;
   }

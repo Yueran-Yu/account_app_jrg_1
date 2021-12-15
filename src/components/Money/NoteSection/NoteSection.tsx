@@ -1,16 +1,12 @@
-import React, {useRef, useState} from 'react';
+import React, {useRef} from 'react';
 import {Wrapper} from "./NoteSection.style";
 
-
-
-export const NoteSection: React.FC = () => {
-	const [note, setNote] = useState('')
+export const NoteSection: React.FC<NoteProps> = ({value, onChangeNote}) => {
 	const refInput = useRef<HTMLInputElement>(null)
 
 	const InputValue = () => {
 		if (refInput.current) {
-			console.log(refInput.current.value)
-			setNote(refInput.current.value)
+			onChangeNote(refInput.current.value)
 		}
 	}
 
@@ -21,7 +17,7 @@ export const NoteSection: React.FC = () => {
 				<input type="text"
 							 placeholder='Add note here'
 							 ref={refInput}
-							 defaultValue={note}
+							 defaultValue={value}
 							 onBlur={InputValue}
 				/>
 			</label>

@@ -3,13 +3,8 @@ import React, {useState} from 'react';
 import {Icon} from "../../Nav/Icon";
 import {Wrapper} from './NumbePadSection.style';
 
-type Props = {
-	value: number
-	onChange: (value: number) => void
-	onOk?: () => void
-}
 
-export const NumberPadSection: React.FC<Props> = (props) => {
+export const NumberPadSection: React.FC<NumberPadProps> = (props) => {
 	const [output, _setOutput] = useState('0')
 	const [result, _setResult] = useState('0')
 	const [temp, _setTemp] = useState('')
@@ -127,7 +122,7 @@ export const NumberPadSection: React.FC<Props> = (props) => {
 					}
 					break;
 				case 'OK':
-					if (result === '0'){
+					if (result === '0') {
 						alert('Please enter your amount')
 						return
 					}
