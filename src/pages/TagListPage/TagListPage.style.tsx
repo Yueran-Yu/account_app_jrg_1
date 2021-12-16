@@ -44,14 +44,14 @@ export const TagWrapper = styled.ol`
     margin-top: 10px;
     text-align: center;
     justify-self: center;
-    color: #5d5c5c;
+    color: #676767;
     width: 40px;
     height: 40px;
     border-radius: 50%;
     padding-top: 5px;
 
     &.selected {
-      background: #ececec;
+      background: #e5e5e5;
       color: ${selectedColor};
     }
   }

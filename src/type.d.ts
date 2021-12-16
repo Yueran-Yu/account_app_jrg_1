@@ -20,7 +20,7 @@ type CategoryProps = {
 	onChangeCategory: (newCategory: Category) => void
 }
 
-type DateProps={
+type DateProps = {
 	value: Date
 	onChangeDate: (newDate: Date) => void
 }
@@ -29,4 +29,10 @@ type NumberPadProps = {
 	value: number
 	onChange: (value: number) => void
 	onOk?: () => void
+}
+
+type TagListContextType = {
+	tags: MyTag[]
+	onAddTags: (tag:MyTag) => void
+
 }

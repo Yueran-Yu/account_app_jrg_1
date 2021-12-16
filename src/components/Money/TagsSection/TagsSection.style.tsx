@@ -22,10 +22,10 @@ export const Wrapper = styled.section`
       align-content: center;
       padding-top: 4px;
       border-radius: 50%;
-      color: #5d5c5c;
+      color: #676767;
 
       &.selected {
-        background: #ececec;
+        background: #e5e5e5;
         color: ${selectedColor};
       }
 

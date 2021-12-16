@@ -1,19 +1,11 @@
-import {MdPayment, MdWifiCalling, MdBuild, MdLocalDrink, MdCommute, MdFastfood} from "react-icons/md";
-import React, {useState} from 'react';
-import {Wrapper} from './TagSection.style';
+import React, {useContext} from 'react';
+import {Wrapper} from './TagsSection.style';
 import {Link} from 'react-router-dom';
+import {TagListContext} from "../../../context/TagListContext/TagListProvider";
 require('icons/add1.svg');
 
-
 export const TagsSection: React.FC<TagProps> = ({value, onChangeTag}) => {
-	const [tags] = useState<MyTag[]>([
-		{id: 1, tag: <MdPayment/>},
-		{id: 2, tag: <MdWifiCalling/>},
-		{id: 3, tag: <MdBuild/>},
-		{id: 4, tag: <MdLocalDrink/>},
-		{id: 5, tag: <MdCommute/>},
-		{id: 6, tag: <MdFastfood/>},
-	])
+	const {tags} = useContext(TagListContext) as TagListContextType
 
 	const onSelectTag = (tag: MyTag) => {
 		if (value !== tag.id) {
@@ -22,9 +14,6 @@ export const TagsSection: React.FC<TagProps> = ({value, onChangeTag}) => {
 		}
 	}
 
-	// const generateRandomNumber = () =>
-	// 	Math.round(Date.now() * Math.random());
-	//
 	// const onAddTags = () => {
 	// 	setTags([
 	// 		...tags,

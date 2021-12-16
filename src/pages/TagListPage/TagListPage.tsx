@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext, useState} from "react";
 import {IconType} from "react-icons";
 import {
 	GiClothes, GiForkKnifeSpoon, GiScooter, GiBabyBottle, GiFruitBowl,
@@ -29,6 +29,7 @@ import {
 
 import {useHistory} from 'react-router-dom';
 import {BackBtn, TagWrapper, Wrapper} from "./TagListPage.style";
+import {generateRandomNumber, TagListContext} from "../../context/TagListContext/TagListProvider";
 
 const icons: IconType[] = [MdPayment, MdWifiCalling, MdBuild, MdLocalDrink,
 	MdCommute, MdFastfood, MdEmojiFoodBeverage, MdLocalMovies, MdNoDrinks,
@@ -43,31 +44,46 @@ const icons: IconType[] = [MdPayment, MdWifiCalling, MdBuild, MdLocalDrink,
 	GiRunningShoe]
 
 const IconsList = icons.map(Icon => {
-	return (<Icon/>)
+	return ({id: generateRandomNumber(), tag: <Icon/>})
 })
 
 const TagListPage = () => {
+	// const randomColor = () => ('hsl(' + Math.floor(Math.random() * 500.508) + ',50%,65%)')
+	const [selectedTag, setSelectedTag] = useState<MyTag>()
+	const {tags, onAddTags} = useContext(TagListContext) as TagListContextType
+	let history = useHistory()
 
-	const randomColor = () => ('hsl(' + Math.floor(Math.random() * 500.508) + ',50%,65%)')
-
-	const generateRandomNumber = () =>
-		Math.round(Date.now() * Math.random());
-
-	const onAddNewTags = () => {
+	const onSubmitNewTag = () => {
+		if (selectedTag === undefined) {
+			alert('Please select one tag and submit.')
+		} else {
+			const existTag = tags.find(t => t.id === selectedTag.id)
+			if(existTag){
+				alert('This tag already exists, please select a different tag.')
+			}else{
+				onAddTags(selectedTag)
+				history.goBack()
+			}
+		}
 	}
 
-	let history = useHistory()
 	return (
 		<Wrapper>
 			<div>
-				<BackBtn onClick={() => history.goBack()}><MdOutlineArrowBackIos className='back_icon'/></BackBtn>
-				<button>OK</button>
+				<BackBtn onClick={() => history.goBack()}>
+					<MdOutlineArrowBackIos className='back_icon'/>
+				</BackBtn>
+				<button onClick={onSubmitNewTag}>OK</button>
 			</div>
 			<TagWrapper>
 				{
 					IconsList.map(c =>
-						<li style={{color: randomColor()}} onClick={()=>onAddNewTags()}>
-							{c}
+						<li key={c.id}
+								onClick={() => setSelectedTag(c)}
+								className={selectedTag === undefined ?
+									'' :
+									(selectedTag.id === c.id ? 'selected' : '')}>
+							{c.tag}
 						</li>)
 				}
 			</TagWrapper>

@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {CategorySection} from "../../components/Money/CategorySection/CategorySection";
-import {TagsSection} from "../../components/Money/TagSection/TagSection";
+import {TagsSection} from "../../components/Money/TagsSection/TagsSection";
 import {NoteSection} from "components/Money/NoteSection/NoteSection";
 import {DateSection} from "../../components/Money/DateSection/DateSection";
 import {NumberPadSection} from "../../components/Money/NumberSection/NumberPadSection";
@@ -31,9 +31,9 @@ const Money = () => {
 			<CategorySection
 				value={selected.category}
 				onChangeCategory={newCategory => onChangeTemplate({category: newCategory})}/>
-			<TagsSection
-				value={selected.tagId}
-				onChangeTag={newTagId => onChangeTemplate({tagId: newTagId})}/>
+				<TagsSection
+					value={selected.tagId}
+					onChangeTag={newTagId => onChangeTemplate({tagId: newTagId})}/>
 			{/*{selected.date.toDateString()}*/}
 			<NoteDateWrapper>
 				<NoteSection
