@@ -5,13 +5,14 @@ import {useTagsListContext} from "../../../context/TagListContext/TagsListProvid
 
 require('icons/add1.svg');
 
-export const TagsSection: React.FC<TagProps> = ({value, onChangeTag}) => {
+export const TagsSection: React.FC<TagProps> = ({value, onChangeTag, selectedCategory}) => {
 
-	const {tags} = useTagsListContext()
+	const {expenseTags, incomeTags} = useTagsListContext()
 
 	const onSelectTag = (tag: MyTag) => {
 		if (value !== tag.id) {
-			console.log('tag has been selected!')
+			console.log("::::::::::::::::")
+			console.log(selectedCategory)
 			onChangeTag(tag.id)
 		}
 	}
@@ -19,13 +20,17 @@ export const TagsSection: React.FC<TagProps> = ({value, onChangeTag}) => {
 	return (
 		<Wrapper>
 			<ol>
-				{tags.map(t => <li key={t.id}
-													 onClick={() => {onSelectTag(t)}}
-													 className={value === t.id ? 'selected' : ''}>{t.tag}</li>)
+				{
+					selectedCategory === '-' ?
+						(expenseTags.map(t => <li key={t.id}
+																			onClick={() => {onSelectTag(t)}}
+																			className={value === t.id ? 'selected' : ''}>{t.tag}</li>))
+						: (incomeTags.map(t => <li key={t.id}
+																			 onClick={() => {onSelectTag(t)}}
+																			 className={value === t.id ? 'selected' : ''}>{t.tag}</li>))
 				}
-
 				<li>
-					<Link to='/tagList'>
+					<Link to={`/tagList/${selectedCategory}`}>
 						<svg className='icon'>
 							<use xlinkHref={`#add1`}/>
 						</svg>

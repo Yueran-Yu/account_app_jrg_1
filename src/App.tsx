@@ -17,7 +17,7 @@ const App = () => {
 				<Route exact path='/money'>
 					<Money/>
 				</Route>
-				<Route exact path='/tagList'>
+				<Route exact path='/tagList/:id'>
 					<TagListPage/>
 				</Route>
 				<Route exact path='/statistics'>

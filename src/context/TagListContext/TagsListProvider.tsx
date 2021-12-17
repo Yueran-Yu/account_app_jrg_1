@@ -1,15 +1,10 @@
 import React, {createContext, ReactNode, useContext, useState} from "react";
-import generateRandomNumber from "../../utils/IdGenerator";
-import {ExpenseIcons, IncomeIcons} from "../../utils/ExpenseIcons";
+import {IconsListGenerator, ExpenseIcons, IncomeIcons} from "../../utils/IconsCollections";
 
-const ExpenseIconsList = ExpenseIcons.map(
-	Icon => ({id: generateRandomNumber(), tag: <Icon/>})
-)
-
-const IncomeIconsList = IncomeIcons.map(Icon =>
-	({id: generateRandomNumber(), tag: <Icon/>}))
-
-const initialValue = ExpenseIconsList.slice(0, 8)
+const ExpenseIconsList = IconsListGenerator(ExpenseIcons)
+const IncomeIconsList = IconsListGenerator(IncomeIcons)
+const expenseInitialValue = ExpenseIconsList.slice(0, 7)
+const incomeInitialValue = IncomeIconsList.slice(0, 3)
 
 const TagsListContext = createContext<TagListContextType | null>(null)
 
@@ -19,17 +14,28 @@ export const useTagsListContext = () => {
 
 const TagsListProvider: React.FC<ReactNode> = ({children}) => {
 
-	const [tags, setTags] = useState<MyTag[]>(initialValue)
+	const [expenseTags, setExpenseTags] = useState<MyTag[]>(expenseInitialValue)
+	const [incomeTags, setIncomeTags] = useState<MyTag[]>(incomeInitialValue)
 
-	console.log('######################')
-	tags.map(t => console.log(t.id))
 
-	const onAddTags = (tag: MyTag) => {
-		setTags([...tags, tag])
+	const onAddExpenseTags = (tag: MyTag) => {
+		setExpenseTags([...expenseTags, tag])
+	}
+
+	const onAddIncomeTags = (tag: MyTag) => {
+		setIncomeTags([...incomeTags, tag])
 	}
 
 	return (
-		<TagsListContext.Provider value={{ExpenseIconsList, IncomeIconsList, tags, onAddTags}}>
+		<TagsListContext.Provider
+			value={{
+				ExpenseIconsList,
+				IncomeIconsList,
+				incomeTags,
+				expenseTags,
+				onAddExpenseTags,
+				onAddIncomeTags
+			}}>
 			{children}
 		</TagsListContext.Provider>
 	)

@@ -1,5 +1,9 @@
 type Category = '-' | '+'
 
+type ParamsProps = {
+	id: string
+}
+
 type MyTag = {
 	id: number,
 	tag: ReactElement
@@ -8,6 +12,7 @@ type MyTag = {
 type TagProps = {
 	value: number
 	onChangeTag: (newTagId: number) => void
+	selectedCategory: Category
 }
 
 type NoteProps = {
@@ -32,8 +37,10 @@ type NumberPadProps = {
 }
 
 type TagListContextType = {
-	tags: MyTag[]
-	onAddTags: (tag:MyTag) => void
+	expenseTags: MyTag[]
+	incomeTags: MyTag[]
+	onAddIncomeTags: (tag:MyTag) => void
+	onAddExpenseTags:(tag:MyTag) => void
 	ExpenseIconsList: MyTag[]
 	IncomeIconsList: MyTag[]
 }

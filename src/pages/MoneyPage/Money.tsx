@@ -31,9 +31,10 @@ const Money = () => {
 			<CategorySection
 				value={selected.category}
 				onChangeCategory={newCategory => onChangeTemplate({category: newCategory})}/>
-				<TagsSection
-					value={selected.tagId}
-					onChangeTag={newTagId => onChangeTemplate({tagId: newTagId})}/>
+			<TagsSection
+				value={selected.tagId}
+				onChangeTag={newTagId => onChangeTemplate({tagId: newTagId})}
+				selectedCategory={selected.category}/>
 			{/*{selected.date.toDateString()}*/}
 			<NoteDateWrapper>
 

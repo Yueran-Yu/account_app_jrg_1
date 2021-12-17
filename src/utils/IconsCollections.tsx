@@ -18,7 +18,7 @@ import {
 	RiBookOpenFill,
 	RiMoneyDollarCircleLine, RiGiftLine,
 	RiMoneyDollarBoxLine, RiLineChartLine,
-	RiPieChart2Fill,RiFolderChartLine
+	RiPieChart2Fill, RiFolderChartLine
 } from "react-icons/ri";
 
 import {
@@ -30,7 +30,10 @@ import {
 	MdCreditCard, MdSportsBasketball, MdSportsFootball, MdFitnessCenter, MdOutlineIcecream,
 	MdOutlineChildFriendly, MdOutlineBrush, MdAttachMoney
 } from "react-icons/md";
+
 import {IconType} from "react-icons";
+import generateRandomNumber from "./IdGenerator";
+import React from "react";
 
 export const ExpenseIcons: IconType[] = [MdWifiCalling, MdBuild, MdLocalDrink,
 	MdCommute, MdFastfood, MdEmojiFoodBeverage, MdLocalMovies, MdNoDrinks,
@@ -51,4 +54,14 @@ export const IncomeIcons: IconType[] = [
 	MdAttachMoney,
 	RiGiftLine,
 	RiMoneyDollarBoxLine, RiLineChartLine,
-	RiPieChart2Fill,RiFolderChartLine]
+	RiPieChart2Fill, RiFolderChartLine, GiClothes, MdMiscellaneousServices, RiWaterFlashFill,
+	MdHouse, RiToolsFill, MdPayment, RiPoliceCarFill, RiHotelLine, MdOutlineEmail,
+	MdSignalWifiStatusbarConnectedNoInternet2, GiForkKnifeSpoon, GiScooter, GiFruitBowl,
+	RiHospitalLine, MdOutlineCameraAlt, TiSocialTwitter, TiSocialLinkedin, TiSocialFacebook,
+	TiSocialGithub, TiSocialYoutube, GiCat, GiSofa, GiLipstick, MdOutlineFlightTakeoff]
+
+export const IconsListGenerator = (icons: IconType[]) => {
+	return icons.map(Icon => ({id: generateRandomNumber(), tag: <Icon/>}))
+}
+
+export const isTagExist = (tags: MyTag[], selectedTag: MyTag) => tags.find(t => t.id === selectedTag.id)

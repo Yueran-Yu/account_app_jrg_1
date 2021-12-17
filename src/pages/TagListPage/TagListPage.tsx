@@ -1,30 +1,54 @@
-import React, { useState} from "react";
-import {useHistory} from 'react-router-dom';
+import React, {useState} from "react";
+import {useHistory, useParams} from 'react-router-dom';
 import {BackBtn, TagWrapper, Wrapper} from "./TagListPage.style";
 import {MdOutlineArrowBackIos} from "react-icons/md";
 import {useTagsListContext} from "../../context/TagListContext/TagsListProvider";
+import {isTagExist} from "../../utils/IconsCollections";
 
 const TagListPage = () => {
-	const [selectedTag, setSelectedTag] = useState<MyTag>()
-	const {ExpenseIconsList, tags, onAddTags} = useTagsListContext()
+	const {id} = useParams<ParamsProps>()
 	let history = useHistory()
+	const [selectedTag, setSelectedTag] = useState<MyTag>()
+	const {
+		expenseTags,
+		incomeTags,
+		IncomeIconsList,
+		ExpenseIconsList,
+		onAddExpenseTags,
+		onAddIncomeTags
+	} = useTagsListContext()
 
 	const onSubmitNewTag = () => {
 		if (selectedTag === undefined) {
 			alert('Please select one tag and submit.')
 		} else {
-			const existTag = tags.find(t => t.id === selectedTag.id)
-			if (existTag) {
-				alert('This tag already exists.')
+			if (id === '-') {
+				const existedTag = isTagExist(expenseTags, selectedTag)
+				existedTag ? alert('This tag already exists.') : onAddExpenseTags(selectedTag)
 			} else {
-				onAddTags(selectedTag)
-				history.goBack()
+				const existTag = isTagExist(incomeTags, selectedTag)
+				existTag ? alert('This tag already exists.') : onAddIncomeTags(selectedTag)
 			}
+			history.goBack()
 		}
 	}
 
 	const selectIcon = (icon: MyTag) => {
 		setSelectedTag(icon)
+	}
+
+	const TagsSection = (TagsList: MyTag[]) => {
+		return (
+			TagsList.length > 0 ?
+				TagsList.map(tag =>
+					<li key={tag.id}
+							onClick={() => selectIcon(tag)}
+							className={selectedTag === undefined ?
+								'' :
+								(selectedTag.id === tag.id ? 'selected' : '')}>
+						{tag.tag}
+					</li>) : ''
+		)
 	}
 
 	return (
@@ -36,16 +60,7 @@ const TagListPage = () => {
 				<button onClick={onSubmitNewTag}>OK</button>
 			</div>
 			<TagWrapper>
-				{
-					ExpenseIconsList.map(icon =>
-						<li key={icon.id}
-								onClick={() => selectIcon(icon)}
-								className={selectedTag === undefined ?
-									'' :
-									(selectedTag.id === icon.id ? 'selected' : '')}>
-							{icon.tag}
-						</li>)
-				}
+				{TagsSection(id === '-' ? ExpenseIconsList : IncomeIconsList)}
 			</TagWrapper>
 		</Wrapper>
 	)
