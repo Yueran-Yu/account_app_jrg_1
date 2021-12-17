@@ -1,11 +1,13 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {Wrapper} from './TagsSection.style';
 import {Link} from 'react-router-dom';
-import {TagListContext} from "../../../context/TagListContext/TagListProvider";
+import {useTagsListContext} from "../../../context/TagListContext/TagsListProvider";
+
 require('icons/add1.svg');
 
 export const TagsSection: React.FC<TagProps> = ({value, onChangeTag}) => {
-	const {tags} = useContext(TagListContext) as TagListContextType
+
+	const {tags} = useTagsListContext()
 
 	const onSelectTag = (tag: MyTag) => {
 		if (value !== tag.id) {
@@ -13,13 +15,6 @@ export const TagsSection: React.FC<TagProps> = ({value, onChangeTag}) => {
 			onChangeTag(tag.id)
 		}
 	}
-
-	// const onAddTags = () => {
-	// 	setTags([
-	// 		...tags,
-	// 		{id: generateRandomNumber(), tag: <MdFastfood/>}
-	// 	])
-	// }
 
 	return (
 		<Wrapper>

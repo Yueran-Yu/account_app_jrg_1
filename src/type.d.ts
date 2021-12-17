@@ -34,5 +34,6 @@ type NumberPadProps = {
 type TagListContextType = {
 	tags: MyTag[]
 	onAddTags: (tag:MyTag) => void
-
+	ExpenseIconsList: MyTag[]
+	IncomeIconsList: MyTag[]
 }

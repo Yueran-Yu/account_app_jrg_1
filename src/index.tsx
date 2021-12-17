@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
-import TagListProvider from "./context/TagListContext/TagListProvider";
+import TagsListProvider from "./context/TagListContext/TagsListProvider";
 
 ReactDOM.render(
-	<TagListProvider>
+	<TagsListProvider>
 		<App/>
-	</TagListProvider>
+	</TagsListProvider>
 	, document.getElementById('root')
 );
 

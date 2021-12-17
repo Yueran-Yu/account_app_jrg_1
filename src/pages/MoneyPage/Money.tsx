@@ -36,6 +36,7 @@ const Money = () => {
 					onChangeTag={newTagId => onChangeTemplate({tagId: newTagId})}/>
 			{/*{selected.date.toDateString()}*/}
 			<NoteDateWrapper>
+
 				<NoteSection
 					value={selected.note}
 					onChangeNote={newNote => onChangeTemplate({note: newNote})}/>
@@ -43,6 +44,7 @@ const Money = () => {
 					value={selected.date}
 					onChangeDate={newDate => onChangeTemplate({date: newDate})}/>
 			</NoteDateWrapper>
+
 			<NumberPadSection
 				value={selected.amount}
 				onChange={newAmount => onChangeTemplate({amount: newAmount})}
