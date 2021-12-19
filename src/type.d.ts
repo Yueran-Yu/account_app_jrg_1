@@ -45,6 +45,14 @@ type TagsListContextType = {
 	TotalIncomeTagsList: MyTag[]
 }
 
-type HashMapType={
+type HashMapType = {
 	[key: string]: ReactElement;
+}
+
+type AccountState = {
+	tagId: number
+	note: string
+	date: string
+	category: Category
+	amount: number
 }

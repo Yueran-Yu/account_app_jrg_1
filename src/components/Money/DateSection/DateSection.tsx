@@ -11,6 +11,7 @@ export const DateSection: React.FC<DateProps> = ({value,onChangeDate}) => {
 				className='date'
 				selected={value}
 				name='date'
+				dateFormat='yyyy/MM/dd'
 				onChange={(e: Date)=> onChangeDate(e)}
 			/>
 		</Wrapper>

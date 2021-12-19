@@ -5,6 +5,7 @@ import {NoteSection} from "components/Money/NoteSection/NoteSection";
 import {DateSection} from "../../components/Money/DateSection/DateSection";
 import {NumberPadSection} from "../../components/Money/NumberSection/NumberPadSection";
 import {MyLayout, NoteDateWrapper} from "./Money.styles";
+import {format} from 'date-fns';
 
 const defaultFormData = {
 	tagId: 0,
@@ -28,6 +29,7 @@ const Money = () => {
 
 	return (
 		<MyLayout>
+			{format((selected.date),"yyyy/MM/dd E H:mma")}
 			<CategorySection
 				value={selected.category}
 				onChangeCategory={newCategory => onChangeTemplate({category: newCategory})}/>
@@ -37,7 +39,6 @@ const Money = () => {
 				selectedCategory={selected.category}/>
 			{/*{selected.date.toDateString()}*/}
 			<NoteDateWrapper>
-
 				<NoteSection
 					value={selected.note}
 					onChangeNote={newNote => onChangeTemplate({note: newNote})}/>

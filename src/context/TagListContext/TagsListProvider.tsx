@@ -36,7 +36,6 @@ const TagsListProvider: React.FC<ReactNode> = ({children}) => {
 		setIncomeTags(localIncomeTags)
 	}, [])
 
-
 	useUpdate(() => {
 		console.log('set Item')
 		window.localStorage.setItem('expenseTags', JSON.stringify(expenseTags))
@@ -45,7 +44,6 @@ const TagsListProvider: React.FC<ReactNode> = ({children}) => {
 	useUpdate(() => {
 		window.localStorage.setItem('incomeTags', JSON.stringify(incomeTags))
 	}, [incomeTags])
-
 
 
 	const onAddExpenseTags = (tag: MyTag) => {
