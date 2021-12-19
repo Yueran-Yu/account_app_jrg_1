@@ -29,11 +29,12 @@ export const Wrapper = styled.section`
         color: ${selectedColor};
       }
 
+
       .icon {
         fill: ${selectedColor};
         font-size: 35px;
-
       }
+			
     }
   }
 

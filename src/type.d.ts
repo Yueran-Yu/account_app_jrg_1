@@ -6,7 +6,7 @@ type ParamsProps = {
 
 type MyTag = {
 	id: number,
-	tag: ReactElement
+	tag: string
 }
 
 type TagProps = {
@@ -36,11 +36,15 @@ type NumberPadProps = {
 	onOk?: () => void
 }
 
-type TagListContextType = {
+type TagsListContextType = {
 	expenseTags: MyTag[]
 	incomeTags: MyTag[]
-	onAddIncomeTags: (tag:MyTag) => void
-	onAddExpenseTags:(tag:MyTag) => void
-	ExpenseIconsList: MyTag[]
-	IncomeIconsList: MyTag[]
+	onAddIncomeTags: (tag: MyTag) => void
+	onAddExpenseTags: (tag: MyTag) => void
+	TotalExpenseTagsList: MyTag[]
+	TotalIncomeTagsList: MyTag[]
+}
+
+type HashMapType={
+	[key: string]: ReactElement;
 }

@@ -20,7 +20,7 @@ export const CategorySection: React.FC<CategoryProps> = ({value, onChangeCategor
 			<div className='roundCorner'>
 				{
 					categoryList.map(category => (
-						<div className={value === category ? 'selected' : ''}
+						<div key={category} className={value === category ? 'selected' : ''}
 								 onClick={() => changeCategory(category)}>{CategoryListMap[category]}
 						</div>
 					))

@@ -3,7 +3,7 @@ import {useHistory, useParams} from 'react-router-dom';
 import {BackBtn, TagWrapper, Wrapper} from "./TagListPage.style";
 import {MdOutlineArrowBackIos} from "react-icons/md";
 import {useTagsListContext} from "../../context/TagListContext/TagsListProvider";
-import {isTagExist} from "../../utils/IconsCollections";
+import {isTagExist, ExpenseIconsHashMap} from "../../utils/IconsCollections";
 
 const TagListPage = () => {
 	const {id} = useParams<ParamsProps>()
@@ -12,8 +12,8 @@ const TagListPage = () => {
 	const {
 		expenseTags,
 		incomeTags,
-		IncomeIconsList,
-		ExpenseIconsList,
+		TotalIncomeTagsList,
+		TotalExpenseTagsList,
 		onAddExpenseTags,
 		onAddIncomeTags
 	} = useTagsListContext()
@@ -46,7 +46,7 @@ const TagListPage = () => {
 							className={selectedTag === undefined ?
 								'' :
 								(selectedTag.id === tag.id ? 'selected' : '')}>
-						{tag.tag}
+						{ExpenseIconsHashMap[tag.tag]}
 					</li>) : ''
 		)
 	}
@@ -60,7 +60,7 @@ const TagListPage = () => {
 				<button onClick={onSubmitNewTag}>OK</button>
 			</div>
 			<TagWrapper>
-				{TagsSection(id === '-' ? ExpenseIconsList : IncomeIconsList)}
+				{TagsSection(id === '-' ? TotalExpenseTagsList : TotalIncomeTagsList)}
 			</TagWrapper>
 		</Wrapper>
 	)

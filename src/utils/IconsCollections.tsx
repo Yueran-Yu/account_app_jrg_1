@@ -49,19 +49,29 @@ export const ExpenseIcons: IconType[] = [MdWifiCalling, MdBuild, MdLocalDrink,
 
 
 export const IncomeIcons: IconType[] = [
-	MdPayment,
-	RiMoneyDollarCircleLine,
-	MdAttachMoney,
-	RiGiftLine,
-	RiMoneyDollarBoxLine, RiLineChartLine,
+	MdPayment, RiMoneyDollarCircleLine, MdAttachMoney, RiGiftLine, RiMoneyDollarBoxLine, RiLineChartLine,
 	RiPieChart2Fill, RiFolderChartLine, GiClothes, MdMiscellaneousServices, RiWaterFlashFill,
 	MdHouse, RiToolsFill, MdPayment, RiPoliceCarFill, RiHotelLine, MdOutlineEmail,
 	MdSignalWifiStatusbarConnectedNoInternet2, GiForkKnifeSpoon, GiScooter, GiFruitBowl,
 	RiHospitalLine, MdOutlineCameraAlt, TiSocialTwitter, TiSocialLinkedin, TiSocialFacebook,
 	TiSocialGithub, TiSocialYoutube, GiCat, GiSofa, GiLipstick, MdOutlineFlightTakeoff]
 
-export const IconsListGenerator = (icons: IconType[]) => {
-	return icons.map(Icon => ({id: generateRandomNumber(), tag: <Icon/>}))
+
+
+export const IncomeIconsHashMap:HashMapType = IncomeIcons.reduce((result: {}, Icon: IconType) => {
+	return {...result, [Icon.name]: <Icon/>}
+}, {})
+
+export const ExpenseIconsHashMap:HashMapType = ExpenseIcons.reduce((result: {}, Icon: IconType) => {
+	return {...result, [Icon.name]: <Icon/>}
+}, {})
+
+
+export const TagsListGenerator = (icons: IconType[]) => {
+	return icons.map((Icon) => {
+			return {id: generateRandomNumber(), tag: Icon.name}
+		}
+	)
 }
 
 export const isTagExist = (tags: MyTag[], selectedTag: MyTag) => tags.find(t => t.id === selectedTag.id)
