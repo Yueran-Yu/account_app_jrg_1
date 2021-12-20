@@ -6,6 +6,7 @@ import {DateSection} from "../../components/Money/DateSection/DateSection";
 import {NumberPadSection} from "../../components/Money/NumberSection/NumberPadSection";
 import {MyLayout, NoteDateWrapper} from "./Money.styles";
 import {format} from 'date-fns';
+import useAccountStatement from "../../hooks/useAccountStatement";
 
 const defaultFormData = {
 	tagId: 0,
@@ -17,6 +18,11 @@ const defaultFormData = {
 
 const Money = () => {
 	const [selected, setSelected] = useState(defaultFormData)
+	const {accountStatements, addAccountStatement} = useAccountStatement()
+
+	console.log('accountStatements')
+	console.log(accountStatements)
+
 	type Selected = typeof selected
 	const onChangeTemplate = (obj: Partial<Selected>) => {
 		setSelected({...selected, ...obj})
@@ -24,12 +30,13 @@ const Money = () => {
 
 	const submit = () => {
 		setSelected(defaultFormData)
+		addAccountStatement(selected)
 		alert('Saved Successfully')
 	}
 
 	return (
 		<MyLayout>
-			{format((selected.date),"yyyy/MM/dd E H:mma")}
+			{/*{format((selected.date), "yyyy/MM/dd E H:mma")}*/}
 			<CategorySection
 				value={selected.category}
 				onChangeCategory={newCategory => onChangeTemplate({category: newCategory})}/>

@@ -30,7 +30,7 @@ const Label = styled.label`
   }
 `
 
-export const InputForm: React.FC = () => {
+ const InputForm: React.FC = () => {
 
 	return (
 		<Label>
