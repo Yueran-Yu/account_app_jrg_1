@@ -18,10 +18,8 @@ const defaultFormData = {
 
 const Money = () => {
 	const [selected, setSelected] = useState(defaultFormData)
-	const {accountStatements, addAccountStatement} = useAccountStatement()
+	const { addAccountStatement} = useAccountStatement()
 
-	console.log('accountStatements')
-	console.log(accountStatements)
 
 	type Selected = typeof selected
 	const onChangeTemplate = (obj: Partial<Selected>) => {
@@ -29,9 +27,9 @@ const Money = () => {
 	}
 
 	const submit = () => {
-		setSelected(defaultFormData)
 		addAccountStatement(selected)
-		alert('Saved Successfully')
+		// set all input area to initial state
+		setSelected(defaultFormData)
 	}
 
 	return (
@@ -44,7 +42,6 @@ const Money = () => {
 				value={selected.tagId}
 				onChangeTag={newTagId => onChangeTemplate({tagId: newTagId})}
 				selectedCategory={selected.category}/>
-			{/*{selected.date.toDateString()}*/}
 			<NoteDateWrapper>
 				<NoteSection
 					value={selected.note}
@@ -53,7 +50,6 @@ const Money = () => {
 					value={selected.date}
 					onChangeDate={newDate => onChangeTemplate({date: newDate})}/>
 			</NoteDateWrapper>
-
 			<NumberPadSection
 				value={selected.amount}
 				onChange={newAmount => onChangeTemplate({amount: newAmount})}

@@ -49,7 +49,7 @@ type HashMapType = {
 	[key: string]: ReactElement;
 }
 
-type AccountStatement = {
+type AccountStatementType = {
 	tagId: number
 	note: string
 	date: Date
