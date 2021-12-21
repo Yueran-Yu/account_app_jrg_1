@@ -1,3 +1,4 @@
+
 type Category = '-' | '+'
 
 type ParamsProps = {
@@ -45,8 +46,14 @@ type TagsListContextType = {
 	TotalIncomeTagsList: MyTag[]
 }
 
+
+type ButtonType={
+	typeD: string
+	children: ReactElement
+}
+
 type HashMapType = {
-	[key: string]: ReactElement;
+	[key: string]: ReactElement
 }
 
 type AccountStatementType = {

@@ -13,8 +13,6 @@ export const useTagsListContext = () => {
 	return useContext(TagsListContext) as TagsListContextType
 }
 
-export const findTag = (tagId:number, tags: MyTag[]) => tags.find(t=> t.id === tagId)
-
 const TagsListProvider: React.FC<ReactNode> = ({children}) => {
 
 	const [expenseTags, setExpenseTags] = useState<MyTag[]>([])
@@ -54,10 +52,6 @@ const TagsListProvider: React.FC<ReactNode> = ({children}) => {
 	const onAddIncomeTags = (tag: MyTag) => {
 		setIncomeTags([...incomeTags, tag])
 	}
-
-
-
-
 
 	return (
 		<TagsListContext.Provider

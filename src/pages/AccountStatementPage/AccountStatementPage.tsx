@@ -10,12 +10,8 @@ import {Link} from "react-router-dom";
 
 const AccountStatementPage = () => {
 	const [category, setCategory] = useState<Category>('-')
-	const {accountStatements} = useAccountStatement()
+	const {disPlayStatementTags, accountStatements} = useAccountStatement()
 	const {expenseTags, incomeTags} = useTagsListContext()
-
-	const disPlayStatementTags = (statement: AccountStatementType, originalTags: MyTag[], originalHashMap: HashMapType) => (
-		originalTags.map(x => x.id === statement.tagId ? <div className='icon'>{originalHashMap[x.tag]}</div> : '')
-	)
 
 	const statement = accountStatements.filter((state) => (state.category === category))
 
@@ -51,7 +47,6 @@ const AccountStatementPage = () => {
 		}
 	)
 
-	console.log(dateAsKeyStatement)
 	return (
 		<AccountWrapper>
 			<Layout>

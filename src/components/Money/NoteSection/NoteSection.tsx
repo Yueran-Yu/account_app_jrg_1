@@ -2,7 +2,6 @@ import React, {ChangeEvent} from 'react';
 import {Wrapper} from "./NoteSection.style";
 import {RiStickyNoteLine} from "react-icons/ri";
 
-
 export const NoteSection: React.FC<NoteProps> = ({value, onChangeNote}) => {
 
 
