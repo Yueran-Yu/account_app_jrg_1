@@ -56,3 +56,8 @@ type AccountStatementType = {
 	category: Category
 	amount: number
 }
+
+
+type X = {
+	[key: string]: {}
+}

@@ -45,7 +45,6 @@ const TagsListProvider: React.FC<ReactNode> = ({children}) => {
 		window.localStorage.setItem('incomeTags', JSON.stringify(incomeTags))
 	}, [incomeTags])
 
-
 	const onAddExpenseTags = (tag: MyTag) => {
 		setExpenseTags([...expenseTags, tag])
 	}

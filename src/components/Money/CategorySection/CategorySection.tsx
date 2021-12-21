@@ -12,7 +12,7 @@ export const CategorySection: React.FC<CategoryProps> = ({value, onChangeCategor
 	const [categoryList] = useState<Keys[]>(['-', '+'])
 
 	const changeCategory = (category: string) => {
-		category === '-' ? onChangeCategory('-') : onChangeCategory('+')
+		onChangeCategory(category === '-' ? '-' : '+')
 	}
 
 	return (

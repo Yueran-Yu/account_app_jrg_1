@@ -57,12 +57,11 @@ export const IncomeIcons: IconType[] = [
 	TiSocialGithub, TiSocialYoutube, GiCat, GiSofa, GiLipstick, MdOutlineFlightTakeoff]
 
 
-
-export const IncomeIconsHashMap:HashMapType = IncomeIcons.reduce((result: {}, Icon: IconType) => {
+export const IncomeIconsHashMap: HashMapType = IncomeIcons.reduce((result: {}, Icon: IconType) => {
 	return {...result, [Icon.name]: <Icon/>}
 }, {})
 
-export const ExpenseIconsHashMap:HashMapType = ExpenseIcons.reduce((result: {}, Icon: IconType) => {
+export const ExpenseIconsHashMap: HashMapType = ExpenseIcons.reduce((result: {}, Icon: IconType) => {
 	return {...result, [Icon.name]: <Icon/>}
 }, {})
 
@@ -74,4 +73,4 @@ export const TagsListGenerator = (icons: IconType[]) => {
 	)
 }
 
-export const isTagExist = (tags: MyTag[], selectedTag: MyTag) => tags.find(t => t.id === selectedTag.id)
+export const isTagExist = (tags: MyTag[], selectedTag: MyTag) => tags.find(t => t.id === selectedTag.id || t.tag === selectedTag.tag)

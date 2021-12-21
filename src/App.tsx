@@ -1,9 +1,9 @@
 import React from 'react';
 import {HashRouter as Router, Switch, Route, Redirect} from "react-router-dom";
 import './index.scss';
-import Money from "./pages/MoneyPage/Money";
-import Statistics from "./pages/Statistics";
-import ExpenditureList from "./pages/ExpenditureList";
+import MoneyPage from "./pages/MoneyPage/MoneyPage";
+import StatisticsPage from "./pages/StatisticsPage/StatisticsPage";
+import AccountStatementPage from "./pages/AccountStatementPage/AccountStatementPage";
 import NotMatch from "./pages/NotMatch";
 import TagListPage from "./pages/TagListPage/TagListPage";
 
@@ -12,16 +12,16 @@ const App = () => {
 		<Router>
 			<Switch>
 				<Route exact path='/list'>
-					<ExpenditureList/>
+					<AccountStatementPage/>
 				</Route>
 				<Route exact path='/money'>
-					<Money/>
+					<MoneyPage/>
 				</Route>
 				<Route exact path='/tagList/:id'>
 					<TagListPage/>
 				</Route>
 				<Route exact path='/statistics'>
-					<Statistics/>
+					<StatisticsPage/>
 				</Route>
 				<Redirect from='/' to='/money'/>
 				<Route path='*'>

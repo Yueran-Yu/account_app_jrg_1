@@ -4,9 +4,10 @@ import {TagsSection} from "../../components/Money/TagsSection/TagsSection";
 import {NoteSection} from "components/Money/NoteSection/NoteSection";
 import {DateSection} from "../../components/Money/DateSection/DateSection";
 import {NumberPadSection} from "../../components/Money/NumberSection/NumberPadSection";
-import {MyLayout, NoteDateWrapper} from "./Money.styles";
-import {format} from 'date-fns';
+import {MyLayout, NoteDateWrapper} from "./MoneyPage.styles";
 import useAccountStatement from "../../hooks/useAccountStatement";
+// import {format} from "date-fns";
+
 
 const defaultFormData = {
 	tagId: 0,
@@ -16,7 +17,7 @@ const defaultFormData = {
 	amount: 0
 }
 
-const Money = () => {
+const MoneyPage = () => {
 	const [selected, setSelected] = useState(defaultFormData)
 	const { addAccountStatement} = useAccountStatement()
 
@@ -58,4 +59,4 @@ const Money = () => {
 	)
 }
 
-export default Money;
+export default MoneyPage;

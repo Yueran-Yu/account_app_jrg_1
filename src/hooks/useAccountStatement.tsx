@@ -7,7 +7,6 @@ const useAccountStatement = () => {
 		setAccountStatements(JSON.parse(window.localStorage.getItem('accountStatements') || '[]'))
 	}, [])
 
-
 	const addAccountStatement = (statement: AccountStatementType) => {
 		if (statement.note === '' || statement.note === null) {
 			alert('Sorry, you missed the note.')
