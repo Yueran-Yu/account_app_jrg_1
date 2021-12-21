@@ -4,7 +4,7 @@ import {StateDetailsWrapper} from "./StateDetails.styles";
 const StateDetails = () => {
 	return (
 		<StateDetailsWrapper>
-			h1
+			Statement Details
 		</StateDetailsWrapper>
 	);
 };

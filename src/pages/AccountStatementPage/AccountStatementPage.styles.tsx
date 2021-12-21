@@ -54,6 +54,7 @@ export const AccountWrapper = styled.div`
       background: hsl(240, 100%, 99%);
       opacity: 0.8;
       transition: 0.3s;
+			cursor: pointer;
 
       .icon {
         background-color: #2f61f1;

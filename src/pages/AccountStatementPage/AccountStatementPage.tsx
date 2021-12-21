@@ -6,6 +6,7 @@ import useAccountStatement from "../../hooks/useAccountStatement";
 import {ExpenseIconsHashMap, IncomeIconsHashMap} from "../../utils/IconsCollections";
 import {useTagsListContext} from "../../context/TagListContext/TagsListProvider";
 import {format} from "date-fns";
+import {Link} from "react-router-dom";
 
 const AccountStatementPage = () => {
 	const [category, setCategory] = useState<Category>('-')
@@ -33,7 +34,7 @@ const AccountStatementPage = () => {
 					<div>
 						{
 							dateAsKeyStatement[key].map(state => (
-								<div className='icon-wrapper'>
+								<Link to={`/statementDetails/${state.tagId}`} className='icon-wrapper'>
 									<div className='icon-note'>
 										{state.category === '-' ?
 											disPlayStatementTags(state, expenseTags, ExpenseIconsHashMap)
@@ -41,7 +42,7 @@ const AccountStatementPage = () => {
 										<div>{state.note}</div>
 									</div>
 									<div>${state.amount}</div>
-								</div>
+								</Link>
 							))
 						}
 					</div>
