@@ -17,13 +17,12 @@ export const AccountWrapper = styled.div`
     color: #565656;
 
     .date {
-      border-bottom: 1px solid #cfcfcf;
       padding-bottom: 5px;
       margin-bottom: 10px;
       text-align: start;
       font-size: 13px;
       color: #8c8c8c;
-      box-shadow: rgba(24, 24, 24, 0.1) 0 1px 2px 0;
+      box-shadow: rgba(24, 24, 24, 0.1) 1px 1px 2px 1px;
     }
 
     .icon-wrapper {

@@ -3,10 +3,10 @@ import {HashRouter as Router, Switch, Route, Redirect} from "react-router-dom";
 import './index.scss';
 import MoneyPage from "./pages/MoneyPage/MoneyPage";
 import StatisticsPage from "./pages/StatisticsPage/StatisticsPage";
-import AccountStatementPage from "./pages/AccountStatementPage/AccountStatementPage";
 import NotMatch from "./pages/NotMatch";
 import TagListPage from "./pages/TagListPage/TagListPage";
-import StateDetailsPage from "./pages/StateDetails/StateDetailsPage";
+import AccountStatementPage from 'pages/AccountStatementPage/AccountStatementPage';
+import StateDetailsPage from 'pages/StateDetails/StateDetailsPage';
 
 const App = () => {
 	return (
@@ -18,7 +18,6 @@ const App = () => {
 				<Route exact path='/statementDetails/:id'>
 					<StateDetailsPage/>
 				</Route>
-
 				<Route exact path='/money'>
 					<MoneyPage/>
 				</Route>
