@@ -17,7 +17,7 @@ export const AccountWrapper = styled.div`
     color: #565656;
 
     .date {
-      padding-bottom: 5px;
+      padding: 8px 0;
       margin-bottom: 10px;
       text-align: start;
       font-size: 13px;
@@ -53,7 +53,7 @@ export const AccountWrapper = styled.div`
       background: hsl(240, 100%, 99%);
       opacity: 0.8;
       transition: 0.3s;
-			cursor: pointer;
+      cursor: pointer;
 
       .icon {
         background-color: #2f61f1;

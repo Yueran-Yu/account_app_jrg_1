@@ -3,9 +3,9 @@ import styled from "styled-components";
 export const StateDetailsWrapper = styled.div`
   text-align: center;
   background-color: white;
-	height: 100vh;
-	position: relative;
-	
+  height: 100vh;
+  position: relative;
+
   .qqq {
     background-color: #7a9cff;
     padding: 20px 10px;
@@ -37,11 +37,11 @@ export const StateDetailsWrapper = styled.div`
     margin-top: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center;    
-		text-align: start;
+    justify-content: center;
+    text-align: start;
     font-size: 18px;
     color: #929292;
-		
+
 
     label {
       margin: 25px 0;
@@ -51,26 +51,40 @@ export const StateDetailsWrapper = styled.div`
       flex-direction: row;
       align-items: center;
 
+      .label-name {
+        width: 80px;
+        display: block;
+				text-align: end;
+      }
+
       .display-category {
-        font-size: 20px;
+        font-size: 18px;
         margin-left: 15px;
         margin-right: 30px;
         border: none;
         height: 40px;
+        font-weight: 0.1;
         line-height: 40px;
         width: 100%;
         color: #646464;
+      }
+
+      .date {
+        border: none;
+        color: #646464;
+        font-weight: lighter;
+        font-size: 18px;
       }
     }
 
     .ddd {
       display: flex;
       flex-direction: row;
-			width: 100vw;
-			justify-content: space-around;
-			align-items: end;
-			position: absolute;
-			bottom: 60px;
+      width: 100vw;
+      justify-content: space-around;
+      align-items: end;
+      position: absolute;
+      bottom: 60px;
     }
   }
 `

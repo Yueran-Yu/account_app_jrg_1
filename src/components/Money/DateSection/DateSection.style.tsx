@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import {mainColor} from "../CategorySection/CategorySection.style";
 
-export const Wrapper = styled.div`
+export const DateWrapper = styled.div`
   & .date {
     text-align: center;
     float: right;

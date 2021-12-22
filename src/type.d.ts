@@ -28,6 +28,7 @@ type CategoryProps = {
 
 type DateProps = {
 	value: Date
+	classN?: string
 	onChangeDate: (newDate: Date) => void
 }
 
@@ -64,7 +65,11 @@ type AccountStatementType = {
 	amount: number
 }
 
-
 type X = {
 	[key: string]: {}
 }
+
+type InputType = {
+	label: string
+	classN:string
+} & React.InputHTMLAttributes<HTMLInputElement>

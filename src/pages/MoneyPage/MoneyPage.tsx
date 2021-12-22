@@ -6,6 +6,7 @@ import {DateSection} from "../../components/Money/DateSection/DateSection";
 import {NumberPadSection} from "../../components/Money/NumberSection/NumberPadSection";
 import {MyLayout, NoteDateWrapper} from "./MoneyPage.styles";
 import useAccountStatement from "../../hooks/useAccountStatement";
+import {DateWrapper} from "../../components/Money/DateSection/DateSection.style";
 // import {format} from "date-fns";
 
 
@@ -47,9 +48,11 @@ const MoneyPage = () => {
 				<NoteSection
 					value={selected.note}
 					onChangeNote={newNote => onChangeTemplate({note: newNote})}/>
+				<DateWrapper>
 				<DateSection
 					value={selected.date}
 					onChangeDate={newDate => onChangeTemplate({date: newDate})}/>
+				</DateWrapper>
 			</NoteDateWrapper>
 			<NumberPadSection
 				value={selected.amount}
