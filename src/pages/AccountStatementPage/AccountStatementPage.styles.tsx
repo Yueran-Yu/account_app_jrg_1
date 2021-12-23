@@ -27,25 +27,43 @@ export const AccountWrapper = styled.div`
 
     .icon-wrapper {
       display: flex;
-      justify-content: space-between;
+      justify-content: space-around;
       padding: 5px 20px;
       line-height: 25px;
-      font-size: 18px;
+      font-size: 16px;
 
       .icon-note {
+        width: 50%;
         display: flex;
-        flex-direction: row;
+        justify-content: start;
 
-        .icon {
-          margin-right: 10px;
-          width: 25px;
-          height: 25px;
-          background-color: #708fe7;
-          justify-content: center;
-          padding-top: 3px;
-          color: white;
-          border-radius: 50%;
-        }
+      }
+
+      .amount-edit {
+        width: 50%;
+        display: flex;
+        justify-content: end;
+				
+				.edit-btn{
+					padding-left: 10px;
+					font-size: 18px;
+				}
+
+        .edit-btn:hover{
+          color: #2f61f1;
+				}
+      }
+
+      .icon {
+        margin-right: 10px;
+        width: 25px;
+        height: 25px;
+				font-size: 18px;
+        background-color: #708fe7;
+        justify-content: center;
+        padding-top: 3px;
+        color: white;
+        border-radius: 50%;
       }
     }
 

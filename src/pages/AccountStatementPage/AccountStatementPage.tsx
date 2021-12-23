@@ -7,6 +7,8 @@ import {ExpenseIconsHashMap, IncomeIconsHashMap} from "../../utils/IconsCollecti
 import {useTagsListContext} from "../../context/TagListContext/TagsListProvider";
 import {format} from "date-fns";
 import {Link} from "react-router-dom";
+import { AiOutlineEdit } from "react-icons/ai";
+
 
 const AccountStatementPage = () => {
 	const [category, setCategory] = useState<Category>('-')
@@ -32,15 +34,17 @@ const AccountStatementPage = () => {
 					<div>
 						{
 							dateAsKeyStatement[key].map(state => (
-								<Link to={`/statementDetails/${state.tagId}`}
-											className='icon-wrapper'>
+								<Link to={`/statementDetails/${state.tagId}`} className='icon-wrapper'>
 									<div className='icon-note'>
 										{state.category === '-' ?
 											disPlayStatementTags(state, expenseTags, ExpenseIconsHashMap)
 											: disPlayStatementTags(state, incomeTags, IncomeIconsHashMap)}
 										<div>{state.note}</div>
 									</div>
+									<div className='amount-edit'>
 									<div>${state.amount}</div>
+								   <div className='edit-btn'><AiOutlineEdit/></div>
+									</div>
 								</Link>
 							))
 						}
