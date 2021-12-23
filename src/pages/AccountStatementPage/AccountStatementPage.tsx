@@ -13,15 +13,17 @@ const AccountStatementPage = () => {
 	const {disPlayStatementTags, accountStatements} = useAccountStatement()
 	const {expenseTags, incomeTags} = useTagsListContext()
 
-	const statement = accountStatements.filter((state) => (state.category === category))
+	const statements = accountStatements.filter((state) => (state.category === category)).sort((a, b) => +new Date(b.date) - +new Date(a.date))
+
 
 	// this is the super method of change a ordinary array object to the special object which key is date
-	const dateAsKeyStatement = statement.reduce((state: { [key: string]: AccountStatementType[] }, current) => {
+	const dateAsKeyStatement = statements.reduce((state: { [key: string]: AccountStatementType[] }, current) => {
 		let d = format((new Date(current.date)), "yyyy-MM-dd  E")
 		if (!state[d]) state[d] = []
 		state[d].push({...current})
 		return state
 	}, {})
+
 
 	const FinalStatement = Object.keys(dateAsKeyStatement).map(key => {
 			return (
@@ -30,7 +32,8 @@ const AccountStatementPage = () => {
 					<div>
 						{
 							dateAsKeyStatement[key].map(state => (
-								<Link to={`/statementDetails/${state.tagId}`} className='icon-wrapper'>
+								<Link to={`/statementDetails/${state.tagId}`}
+											className='icon-wrapper'>
 									<div className='icon-note'>
 										{state.category === '-' ?
 											disPlayStatementTags(state, expenseTags, ExpenseIconsHashMap)

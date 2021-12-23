@@ -54,7 +54,7 @@ export const StateDetailsWrapper = styled.div`
       .label-name {
         width: 80px;
         display: block;
-				text-align: end;
+        text-align: end;
       }
 
       .display-category {
@@ -63,17 +63,18 @@ export const StateDetailsWrapper = styled.div`
         margin-right: 30px;
         border: none;
         height: 40px;
-        font-weight: 0.1;
         line-height: 40px;
         width: 100%;
-        color: #646464;
+        color: #454545;
+        font-family: inherit;
       }
 
       .date {
         border: none;
-        color: #646464;
+        color: #454545;
         font-weight: lighter;
         font-size: 18px;
+        font-family: inherit;
       }
     }
 

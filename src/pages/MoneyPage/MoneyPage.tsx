@@ -6,11 +6,11 @@ import {DateSection} from "../../components/Money/DateSection/DateSection";
 import {NumberPadSection} from "../../components/Money/NumberSection/NumberPadSection";
 import {MyLayout, NoteDateWrapper} from "./MoneyPage.styles";
 import useAccountStatement from "../../hooks/useAccountStatement";
-import {DateWrapper} from "../../components/Money/DateSection/DateSection.style";
+import { DateWrapper } from "components/Money/DateSection/DateSection.style";
 // import {format} from "date-fns";
 
 
-const defaultFormData = {
+export const defaultFormData = {
 	tagId: 0,
 	note: '',
 	date: new Date(),
@@ -20,10 +20,11 @@ const defaultFormData = {
 
 const MoneyPage = () => {
 	const [selected, setSelected] = useState(defaultFormData)
-	const { addAccountStatement} = useAccountStatement()
+	const {addAccountStatement} = useAccountStatement()
 
 
 	type Selected = typeof selected
+
 	const onChangeTemplate = (obj: Partial<Selected>) => {
 		setSelected({...selected, ...obj})
 	}

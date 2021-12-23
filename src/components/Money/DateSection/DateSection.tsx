@@ -7,7 +7,6 @@ export const DateSection: React.FC<DateProps> = ({value,classN,onChangeDate}) =>
 	return (
 			<DatePicker
 				className={`date ${classN}`}
-
 				selected={value}
 				name='date'
 				dateFormat='yyyy/MM/dd'

@@ -1,12 +1,21 @@
 import React, {useEffect, useState} from "react";
 import useUpdate from "./useUpdate";
+import {defaultFormData} from "../pages/MoneyPage/MoneyPage";
 
 const useAccountStatement = () => {
 
 	const [accountStatements, setAccountStatements] = useState<AccountStatementType[]>([]);
+	const [currentState, setCurrentState] = useState<AccountStatementType>(defaultFormData)
+
 	useEffect(() => {
 		setAccountStatements(JSON.parse(window.localStorage.getItem('accountStatements') || '[]'))
+
 	}, [])
+
+	useUpdate(() => {
+		window.localStorage.setItem('accountStatements', JSON.stringify(accountStatements))
+	}, [accountStatements])
+
 
 	const addAccountStatement = (statement: AccountStatementType) => {
 		if (statement.note === '' || statement.note === null) {
@@ -19,17 +28,27 @@ const useAccountStatement = () => {
 		}
 	}
 
-	const findStatementDetail = (tagId: number, accountStatements: AccountStatementType[]) => accountStatements.find(state => state.tagId === tagId)
+
+	const findStatement = (tagId: number, accountStatements: AccountStatementType[]) => accountStatements.find(state => state.tagId === tagId)
 
 	const disPlayStatementTags = (statement: AccountStatementType, originalTags: MyTag[], originalHashMap: HashMapType) => (
 		originalTags.map(x => x.id === statement.tagId ? <div className='icon'>{originalHashMap[x.tag]}</div> : '')
 	)
 
-	useUpdate(() => {
-		window.localStorage.setItem('accountStatements', JSON.stringify(accountStatements))
-	}, [accountStatements])
+	// const updateStatementDetails = (id: number, statement: Partial<AccountStatementType>) => {
+	// 	const state = accountStatements.map(state => state.tagId === id)
+	// 	setAccountStatements([...accountStatements])
+	// }
 
-	return {accountStatements, disPlayStatementTags, findStatementDetail, addAccountStatement}
+
+	return {
+		currentState,
+		setCurrentState,
+		accountStatements,
+		disPlayStatementTags,
+		findStatement,
+		addAccountStatement
+	}
 }
 
 export default useAccountStatement;

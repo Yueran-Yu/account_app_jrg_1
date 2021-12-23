@@ -15,11 +15,14 @@ const StateDetails = () => {
 	const {id} = useParams<ParamsProps>()
 	const history = useHistory()
 	const {expenseTags, incomeTags} = useTagsListContext()
-	const {findStatementDetail, disPlayStatementTags, accountStatements} = useAccountStatement()
-	const stateDetail = findStatementDetail(parseInt(id), accountStatements)
+	const {findStatement, accountStatements, disPlayStatementTags} = useAccountStatement()
+	const stateDetail = findStatement(parseInt(id), accountStatements)
 
-	const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-		e.preventDefault()
+
+	const onChange = (e: ChangeEvent<HTMLInputElement>): void => {
+		// updateStatementDetails(parseInt(id), stateDetail!)
+		stateDetail!.amount = parseInt(e.target.value)
+		console.log(stateDetail!.amount)
 	}
 
 	const onChangeDate = (e: Date) => {
@@ -40,11 +43,21 @@ const StateDetails = () => {
 			</div>
 
 			<form>
-				<LabelForm label='Type' classN='display-category' type='text' value='Expense' placeholder='' name='expense'/>
 
-				<LabelForm label='Amount' classN='display-category' type='text' value={stateDetail ? stateDetail.amount : 0}
-									 placeholder='' name='amount'
-									 onChange={onChange}/>
+				<label>
+					<span className='label-name'>Amount</span>
+					<input type="text" className='display-category' value={stateDetail ? stateDetail.amount : 0}
+								 name='amount'
+								 onChange={onChange}/>
+
+				</label>
+				<LabelForm label='Type' classN='display-category' type='text' readOnly
+									 value={stateDetail ? stateDetail.category === '-' ? 'Expense' : 'Income' : ''} name='expense'/>
+
+				{/*<LabelForm label='Amount' id='amount' classN='display-category' type='text'*/}
+				{/*					 value={stateDetail ? stateDetail.amount : 0}*/}
+				{/*					 name='amount'*/}
+				{/*					 onChange={onChange}/>*/}
 				<label>
 					<span className='label-name'>Date</span>
 					<div className='display-category'>
@@ -52,10 +65,10 @@ const StateDetails = () => {
 					</div>
 				</label>
 				<LabelForm label='Note' classN='display-category' type='text' value={stateDetail ? stateDetail.note : ''}
-									 placeholder='' name='note'
+									 name='note'
 									 onChange={onChange}/>
 				<div className=' ddd'>
-					<Button type="submit">Complete</Button>
+					<Button type="submit">Save</Button>
 					<Button type="submit">Delete</Button>
 				</div>
 			</form>
