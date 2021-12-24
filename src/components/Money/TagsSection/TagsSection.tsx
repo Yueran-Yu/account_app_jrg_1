@@ -5,7 +5,6 @@ import {useTagsListContext} from "../../../context/TagListContext/TagsListProvid
 import {ExpenseIconsHashMap, IncomeIconsHashMap} from '../../../utils/IconsCollections'
 require('icons/add1.svg');
 
-
 export const TagsSection: React.FC<TagProps> = ({value, onChangeTag, selectedCategory}) => {
 	const {expenseTags, incomeTags} = useTagsListContext()
 	const onSelectTag = (tagId: number) => {

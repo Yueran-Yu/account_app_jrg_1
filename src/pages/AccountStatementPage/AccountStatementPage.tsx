@@ -1,4 +1,3 @@
-import {Layout} from "../../components/Layout";
 import React, {useState} from "react";
 import {CategorySection} from "../../components/Money/CategorySection/CategorySection";
 import {AccountWrapper} from "./AccountStatementPage.styles";
@@ -8,6 +7,7 @@ import {useTagsListContext} from "../../context/TagListContext/TagsListProvider"
 import {format} from "date-fns";
 import {Link} from "react-router-dom";
 import {AiOutlineEdit} from "react-icons/ai";
+import {Nav} from "components/Nav/Nav";
 
 
 const AccountStatementPage = () => {
@@ -24,7 +24,6 @@ const AccountStatementPage = () => {
 		return state
 	}, {})
 
-	console.log()
 	const FinalStatement = Object.keys(dateAsKeyStatement).map(key => {
 			return (
 				<div className='final-state'>
@@ -54,12 +53,13 @@ const AccountStatementPage = () => {
 
 	return (
 		<AccountWrapper>
-			<Layout>
-				<div className='category-bg'>
-					<CategorySection value={category} onChangeCategory={value => setCategory(value)}/>
-				</div>
+			<div className='category-bg'>
+				<CategorySection value={category} onChangeCategory={value => setCategory(value)}/>
+			</div>
+			<div className='outside-final'>
 				{FinalStatement}
-			</Layout>
+			</div>
+				<Nav/>
 		</AccountWrapper>
 	)
 }

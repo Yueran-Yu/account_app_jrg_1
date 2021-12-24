@@ -3,11 +3,20 @@ import styled from "styled-components";
 export const AccountWrapper = styled.div`
   text-align: center;
   background-color: white;
+  flex-direction: column;
+
+  .outside-final {
+    margin-top: 56px;
+  }
 
   .category-bg {
-    background: hsla(0, 0%, 92%, 0.45);
+    background: #f3f3f3;
     padding-bottom: 4px;
     margin-bottom: 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
   }
 
   .final-state {
@@ -15,6 +24,7 @@ export const AccountWrapper = styled.div`
     flex-direction: column;
     margin-bottom: 10px;
     color: #565656;
+
 
     .date {
       padding: 8px 15px;
@@ -36,34 +46,34 @@ export const AccountWrapper = styled.div`
         width: 80%;
         display: flex;
         justify-content: start;
-        
-				.note-detail{
+
+        .note-detail {
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
-				}
+        }
       }
 
       .amount-edit {
         width: 20%;
         display: flex;
         justify-content: end;
-				
-				.edit-btn{
-					padding-left: 10px;
-					font-size: 18px;
-				}
 
-        .edit-btn:hover{
+        .edit-btn {
+          padding-left: 10px;
+          font-size: 18px;
+        }
+
+        .edit-btn:hover {
           color: #2f61f1;
-				}
+        }
       }
 
       .icon {
         margin-right: 10px;
         width: 25px;
         height: 25px;
-				font-size: 18px;
+        font-size: 18px;
         background-color: #708fe7;
         justify-content: center;
         padding-top: 3px;
@@ -82,5 +92,9 @@ export const AccountWrapper = styled.div`
         background-color: #2f61f1;
       }
     }
+
+
   }
+
+
 `

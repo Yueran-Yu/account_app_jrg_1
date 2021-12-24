@@ -88,7 +88,7 @@ export const StateDetailsWrapper = styled.div`
       justify-content: space-around;
       align-items: end;
       position: absolute;
-      bottom: 60px;
+      bottom: 45px;
     }
   }
 `

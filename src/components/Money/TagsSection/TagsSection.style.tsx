@@ -3,10 +3,10 @@ import styled from 'styled-components';
 const selectedColor = '#5678de'
 
 export const Wrapper = styled.section`
-  background: #ffffff;
   padding: 12px 16px;
-  flex-grow: 1;
-  overflow: auto;
+  overflow-y: scroll;
+	flex-grow: 3;
+	
 
   > ol {
     display: grid;
@@ -34,7 +34,7 @@ export const Wrapper = styled.section`
         fill: ${selectedColor};
         font-size: 35px;
       }
-			
+
     }
   }
 

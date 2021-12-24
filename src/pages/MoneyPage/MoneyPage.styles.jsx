@@ -16,4 +16,5 @@ export const NoteDateWrapper = styled.section`
 export const MyLayout = styled(Layout)`
   display: flex;
   flex-direction: column;
+  padding-bottom: 36px;
 `

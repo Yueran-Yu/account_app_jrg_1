@@ -4,7 +4,9 @@ import {Icon} from './Icon';
 
 const fontMain = '\'Abel\', sans-serif;'
 export const NavWrapper = styled.ul`
-  background-color: white;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -13,6 +15,7 @@ export const NavWrapper = styled.ul`
   line-height: 24px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
   font-family: ${fontMain};
+	background-color: white;
 
   > li > a {
     display: flex;
