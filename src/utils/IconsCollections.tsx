@@ -15,10 +15,7 @@ import {
 	RiMoneyCnyCircleLine,
 	RiHeartsFill,
 	RiRunLine,
-	RiBookOpenFill,
-	RiMoneyDollarCircleLine, RiGiftLine,
-	RiMoneyDollarBoxLine, RiLineChartLine,
-	RiPieChart2Fill, RiFolderChartLine
+	RiBookOpenFill, RiGiftLine,
 } from "react-icons/ri";
 
 import {
@@ -28,7 +25,7 @@ import {
 	MdOutlineEmail, MdSignalWifiStatusbarConnectedNoInternet2, MdOutlineCameraAlt,
 	MdOutlineFlightTakeoff, MdLibraryMusic, MdSubway,
 	MdCreditCard, MdSportsBasketball, MdSportsFootball, MdFitnessCenter, MdOutlineIcecream,
-	MdOutlineChildFriendly, MdOutlineBrush, MdAttachMoney
+	MdOutlineChildFriendly, MdOutlineBrush
 } from "react-icons/md";
 
 import {IconType} from "react-icons";
@@ -49,8 +46,7 @@ export const ExpenseIcons: IconType[] = [MdWifiCalling, MdBuild, MdLocalDrink,
 
 
 export const IncomeIcons: IconType[] = [
-	MdPayment, RiMoneyDollarCircleLine, MdAttachMoney, RiGiftLine, RiMoneyDollarBoxLine, RiLineChartLine,
-	RiPieChart2Fill, RiFolderChartLine, GiClothes, MdMiscellaneousServices, RiWaterFlashFill,
+	MdPayment, RiGiftLine, GiClothes, MdMiscellaneousServices, RiWaterFlashFill,
 	MdHouse, RiToolsFill, MdPayment, RiPoliceCarFill, RiHotelLine, MdOutlineEmail,
 	MdSignalWifiStatusbarConnectedNoInternet2, GiForkKnifeSpoon, GiScooter, GiFruitBowl,
 	RiHospitalLine, MdOutlineCameraAlt, TiSocialTwitter, TiSocialLinkedin, TiSocialFacebook,

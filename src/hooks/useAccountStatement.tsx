@@ -3,7 +3,6 @@ import useUpdate from "./useUpdate";
 import {defaultFormData} from "../pages/MoneyPage/MoneyPage";
 
 const useAccountStatement = () => {
-
 	const [accountStatements, setAccountStatements] = useState<AccountStatementType[]>([]);
 	const [currentState, setCurrentState] = useState<AccountStatementType>(defaultFormData)
 
@@ -16,7 +15,6 @@ const useAccountStatement = () => {
 		window.localStorage.setItem('accountStatements', JSON.stringify(accountStatements))
 	}, [accountStatements])
 
-
 	const addAccountStatement = (statement: AccountStatementType) => {
 		if (statement.note === '' || statement.note === null) {
 			alert('Sorry, you missed the note.')
@@ -28,25 +26,25 @@ const useAccountStatement = () => {
 		}
 	}
 
-
-	const findStatement = (tagId: number, accountStatements: AccountStatementType[]) => accountStatements.find(state => state.tagId === tagId)
+	const getStatementDetail = (id: number) => accountStatements.find(state => state.uniqueId === id)
 
 	const disPlayStatementTags = (statement: AccountStatementType, originalTags: MyTag[], originalHashMap: HashMapType) => (
 		originalTags.map(x => x.id === statement.tagId ? <div className='icon'>{originalHashMap[x.tag]}</div> : '')
 	)
 
-	// const updateStatementDetails = (id: number, statement: Partial<AccountStatementType>) => {
-	// 	const state = accountStatements.map(state => state.tagId === id)
-	// 	setAccountStatements([...accountStatements])
-	// }
-
+	const deleteStatement = (id: number)=>{
+		const newStatements = accountStatements.filter(state=> state.uniqueId !== id)
+		setAccountStatements(newStatements)
+	}
 
 	return {
 		currentState,
 		setCurrentState,
 		accountStatements,
+		setAccountStatements,
+		deleteStatement,
+		getStatementDetail,
 		disPlayStatementTags,
-		findStatement,
 		addAccountStatement
 	}
 }

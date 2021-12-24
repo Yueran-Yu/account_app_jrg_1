@@ -58,6 +58,7 @@ type HashMapType = {
 }
 
 type AccountStatementType = {
+	uniqueId: number
 	tagId: number
 	note: string
 	date: Date

@@ -58,7 +58,7 @@ export const StateDetailsWrapper = styled.div`
       }
 
       .display-category {
-        font-size: 18px;
+        font-size: 20px;
         margin-left: 15px;
         margin-right: 30px;
         border: none;
@@ -69,10 +69,13 @@ export const StateDetailsWrapper = styled.div`
         font-family: inherit;
       }
 
+      .no-edit {
+        color: #bababa;
+      }
+
       .date {
         border: none;
-        color: #454545;
-        font-weight: lighter;
+        color: #bababa;
         font-size: 18px;
         font-family: inherit;
       }

@@ -17,7 +17,7 @@ export const AccountWrapper = styled.div`
     color: #565656;
 
     .date {
-      padding: 8px 0;
+      padding: 8px 15px;
       margin-bottom: 10px;
       text-align: start;
       font-size: 13px;
@@ -33,14 +33,19 @@ export const AccountWrapper = styled.div`
       font-size: 16px;
 
       .icon-note {
-        width: 50%;
+        width: 80%;
         display: flex;
         justify-content: start;
-
+        
+				.note-detail{
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+				}
       }
 
       .amount-edit {
-        width: 50%;
+        width: 20%;
         display: flex;
         justify-content: end;
 				

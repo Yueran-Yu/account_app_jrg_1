@@ -7,10 +7,10 @@ import {NumberPadSection} from "../../components/Money/NumberSection/NumberPadSe
 import {MyLayout, NoteDateWrapper} from "./MoneyPage.styles";
 import useAccountStatement from "../../hooks/useAccountStatement";
 import { DateWrapper } from "components/Money/DateSection/DateSection.style";
-// import {format} from "date-fns";
-
+import generateRandomNumber from "../../utils/IdGenerator";
 
 export const defaultFormData = {
+	uniqueId:0,
 	tagId: 0,
 	note: '',
 	date: new Date(),
@@ -30,6 +30,7 @@ const MoneyPage = () => {
 	}
 
 	const submit = () => {
+		selected.uniqueId = generateRandomNumber()
 		addAccountStatement(selected)
 		// set all input area to initial state
 		setSelected(defaultFormData)
