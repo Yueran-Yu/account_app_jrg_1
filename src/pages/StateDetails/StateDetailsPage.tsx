@@ -31,7 +31,7 @@ const StateDetails = () => {
 
 	const submit = (e: FormEvent, formData: AccountStatementType) => {
 		e.preventDefault()
-		accountStatements.map(state => {
+		accountStatements.forEach(state => {
 			if (state.uniqueId === formData.uniqueId) {
 				state.amount = formData.amount
 				state.note = formData.note

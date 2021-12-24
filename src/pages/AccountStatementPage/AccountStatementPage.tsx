@@ -7,7 +7,7 @@ import {useTagsListContext} from "../../context/TagListContext/TagsListProvider"
 import {format} from "date-fns";
 import {Link} from "react-router-dom";
 import {AiOutlineEdit} from "react-icons/ai";
-import {Nav} from "components/Nav/Nav";
+import {Layout} from "../../components/Layout";
 
 
 const AccountStatementPage = () => {
@@ -24,10 +24,26 @@ const AccountStatementPage = () => {
 		return state
 	}, {})
 
+	const showTodayString = (date: string) => {
+		const today = new Date().toISOString().slice(0, 10)
+		const yesterday = (d => new Date(d.setDate(d.getDate() - 1)))(new Date()).toISOString().slice(0, 10)
+		const tomorrow = (d => new Date(d.setDate(d.getDate() + 1)))(new Date()).toISOString().slice(0, 10)
+		const currentDate = date.slice(0, 10)
+		if (today === currentDate) {
+			return 'Today'
+		} else if (yesterday === currentDate) {
+			return 'Yesterday'
+		} else if (tomorrow === currentDate) {
+			return 'Tomorrow'
+		} else {
+			return date
+		}
+	}
+
 	const FinalStatement = Object.keys(dateAsKeyStatement).map(key => {
 			return (
 				<div className='final-state'>
-					<div className='date'>{key}</div>
+					<div className='date'>{showTodayString(key)}</div>
 					<div>
 						{
 							dateAsKeyStatement[key].map(state => (
@@ -53,13 +69,14 @@ const AccountStatementPage = () => {
 
 	return (
 		<AccountWrapper>
-			<div className='category-bg'>
-				<CategorySection value={category} onChangeCategory={value => setCategory(value)}/>
-			</div>
-			<div className='outside-final'>
-				{FinalStatement}
-			</div>
-				<Nav/>
+			<Layout>
+				<div className='category-bg'>
+					<CategorySection value={category} onChangeCategory={value => setCategory(value)}/>
+				</div>
+				<div className='outside-final'>
+					{FinalStatement}
+				</div>
+			</Layout>
 		</AccountWrapper>
 	)
 }

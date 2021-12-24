@@ -5,6 +5,7 @@ import {Wrapper} from './NumbePadSection.style';
 
 
 export const NumberPadSection: React.FC<NumberPadProps> = (props) => {
+
 	const [output, _setOutput] = useState('0')
 	const [result, _setResult] = useState('0')
 	const [temp, _setTemp] = useState('')

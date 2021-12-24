@@ -6,7 +6,7 @@ export const AccountWrapper = styled.div`
   flex-direction: column;
 
   .outside-final {
-    margin-top: 56px;
+    margin: 56px 0;
   }
 
   .category-bg {
