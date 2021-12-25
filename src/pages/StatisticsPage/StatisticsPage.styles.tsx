@@ -16,6 +16,6 @@ export const StatisticsWrapper = styled.div`
   }
 
   .final-statistics {
-    margin: 60px 0;
+    margin: 150px 0;
   }
 `
