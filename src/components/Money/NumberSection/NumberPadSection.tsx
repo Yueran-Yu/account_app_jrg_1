@@ -1,11 +1,9 @@
 /* eslint no-eval: 0 */
+import { DeleteIcon } from 'components/deleteIcon';
 import React, {useState} from 'react';
-import {Icon} from "../../Nav/Icon";
 import {Wrapper} from './NumbePadSection.style';
 
-
 export const NumberPadSection: React.FC<NumberPadProps> = (props) => {
-
 	const [output, _setOutput] = useState('0')
 	const [result, _setResult] = useState('0')
 	const [temp, _setTemp] = useState('')
@@ -49,7 +47,6 @@ export const NumberPadSection: React.FC<NumberPadProps> = (props) => {
 	const onClickButtonWrapper = (e: React.MouseEvent) => {
 		const text = (e.target as HTMLButtonElement).textContent
 		if (text === null) {return}
-
 		try {
 			switch (text) {
 				case '0':
@@ -72,6 +69,17 @@ export const NumberPadSection: React.FC<NumberPadProps> = (props) => {
 						setOutput(text)
 						setTemp(text)
 					}
+					break;
+				case '=':
+					if (lastChar === '+' || lastChar === '-') {
+						setResult(calc(output.slice(0, -1)))
+					} else {
+						setResult(calc(output))
+					}
+					props.onChange(parseFloat(result))
+					setBtn('OK')
+					setOutput('')
+					setTemp('')
 					break;
 				case '':
 					if (output.length > 0) {
@@ -132,17 +140,6 @@ export const NumberPadSection: React.FC<NumberPadProps> = (props) => {
 					setOutput('')
 					setTemp('')
 					break;
-				case '=':
-					if (lastChar === '+' || lastChar === '-') {
-						setResult(calc(output.slice(0, -1)))
-					} else {
-						setResult(calc(output))
-					}
-					props.onChange(parseFloat(result))
-					setBtn('OK')
-					setOutput('')
-					setTemp('')
-					break;
 				default:
 					break;
 			}
@@ -165,7 +162,7 @@ export const NumberPadSection: React.FC<NumberPadProps> = (props) => {
 				<button>8</button>
 				<button>9</button>
 				<button>
-					<Icon name='delete'/>
+					<DeleteIcon name='delete'/>
 				</button>
 				<button>4</button>
 				<button>5</button>
@@ -178,7 +175,7 @@ export const NumberPadSection: React.FC<NumberPadProps> = (props) => {
 				<button>C</button>
 				<button>0</button>
 				<button>.</button>
-				<button className='ok'>{btn}</button>
+				<button type='submit' className='ok'>{btn}</button>
 			</div>
 		</Wrapper>
 	)

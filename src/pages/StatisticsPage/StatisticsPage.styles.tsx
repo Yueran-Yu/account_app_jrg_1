@@ -37,6 +37,10 @@ export const StatisticsWrapper = styled.div`
       width: 200vw;
       overflow: scroll;
       background-color: #f6f6f6;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
   }
 

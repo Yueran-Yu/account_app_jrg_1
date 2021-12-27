@@ -15,10 +15,11 @@ const StatisticsPage = () => {
 
 	useEffect(() => {
 		if (chartRef.current !== null) {
-			chartRef.current.scrollLeft = 9999
+			 let divx = document.querySelector('.charts')!
+			divx.scrollLeft = divx.scrollWidth
 		}
-
 	}, [])
+
 	const getOption = () => {
 		let datesMap: { [key: string]: number } = {}
 		let dates: string[] = []
@@ -49,6 +50,9 @@ const StatisticsPage = () => {
 								color: "#434343",
 								fontSize: 13
 							}
+						},
+						axisTick:{
+							alignWithLabel:true
 						},
 						axisLine: {
 							lineStyle:

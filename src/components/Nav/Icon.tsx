@@ -1,5 +1,5 @@
+import React from 'react';
 import {NavLink} from "react-router-dom";
-import React from "react";
 // require('icons/money.svg');
 // require('icons/tags.svg');
 // require('icons/statistics.svg');
