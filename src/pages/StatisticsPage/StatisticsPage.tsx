@@ -61,6 +61,7 @@ const StatisticsPage = () => {
 					},
 				],
 				yAxis: {
+					scale: "true",
 					type: 'value',
 					name: 'Amount',
 					axisLabel: {
@@ -78,17 +79,19 @@ const StatisticsPage = () => {
 				series: [
 					{
 						lineStyle: {
-							color: '#708fe7'
+							color: '#708fe7',
+							width:3
 						},
 						itemStyle: {
 							borderWidth: 15
 						},
+
 						axisLabel: {
 							formatter: '$ {value}',
 							align: 'center',
 						},
 						symbol: 'emptyCircle',
-						symbolSize: 10,
+						symbolSize: 6,
 						color: 'green',
 						data: amount,
 						type: 'line',

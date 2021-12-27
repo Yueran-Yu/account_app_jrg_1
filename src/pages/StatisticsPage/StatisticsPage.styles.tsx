@@ -35,8 +35,8 @@ export const StatisticsWrapper = styled.div`
       left: 10px;
       right: 10px;
       width: 200vw;
-			overflow: scroll;
-      background-color: #efefef;
+      overflow: scroll;
+      background-color: #f6f6f6;
     }
   }
 
