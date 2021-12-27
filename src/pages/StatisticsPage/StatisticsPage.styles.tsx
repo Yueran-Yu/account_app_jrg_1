@@ -17,5 +17,6 @@ export const StatisticsWrapper = styled.div`
 
   .final-statistics {
     margin: 150px 0;
+		padding-bottom: 200px;
   }
 `

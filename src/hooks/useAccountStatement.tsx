@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import useUpdate from "./useUpdate";
 import {defaultFormData} from "../pages/MoneyPage/MoneyPage";
+import {format} from "date-fns";
 
 const useAccountStatement = () => {
 	const [accountStatements, setAccountStatements] = useState<AccountStatementType[]>([]);
@@ -25,8 +26,19 @@ const useAccountStatement = () => {
 			alert('Saved Successfully')
 		}
 	}
+	const statesSortedByCate = (category: Category)=>  accountStatements.filter((state) => (state.category === category)).sort((a, b) => +new Date(b.date) - +new Date(a.date))
+
+
+	const dateAsKeyStatements =(states: AccountStatementType[])=> states.reduce((state: { [key: string]: AccountStatementType[] }, current) => {
+		let d = format((new Date(current.date)), "MM/dd/yyyy  E")
+		if (!state[d]) state[d] = []
+		state[d].push({...current})
+		return state
+	}, {})
+
 
 	const getStatementDetail = (id: number) => accountStatements.find(state => state.uniqueId === id)
+
 
 	const disPlayStatementTags = (statement: AccountStatementType, originalTags: MyTag[], originalHashMap: HashMapType) => (
 		originalTags.map(x => x.id === statement.tagId ? <div className='icon'>{originalHashMap[x.tag]}</div> : '')
@@ -40,6 +52,8 @@ const useAccountStatement = () => {
 	return {
 		currentState,
 		setCurrentState,
+		statesSortedByCate,
+		dateAsKeyStatements,
 		accountStatements,
 		setAccountStatements,
 		deleteStatement,
