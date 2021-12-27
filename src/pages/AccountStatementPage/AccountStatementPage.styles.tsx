@@ -16,7 +16,13 @@ export const AccountWrapper = styled.div`
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 10;
+    z-index: 1;
+
+    @media screen and (min-width: 770px) {
+      width:498px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
 
   .final-state {

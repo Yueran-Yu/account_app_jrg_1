@@ -1,33 +1,45 @@
 import {Layout} from "../../components/Layout";
-import React, {useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {StatisticsWrapper} from "./StatisticsPage.styles";
 import {CategorySection} from "../../components/Money/CategorySection/CategorySection";
 import ReactECharts from 'echarts-for-react';
 import useAccountStatement from "../../hooks/useAccountStatement";
+import {format} from "date-fns";
 
 const StatisticsPage = () => {
 	const [category, setCategory] = useState<Category>('-')
 	const {dateAsKeyStatements, statesSortedByCate} = useAccountStatement()
 	const states = statesSortedByCate(category)
 	const statesByDate = dateAsKeyStatements(states)
+	const chartRef = useRef<HTMLDivElement | null>(null)
 
+	useEffect(() => {
+		if (chartRef.current !== null) {
+			chartRef.current.scrollLeft = 9999
+		}
 
+	}, [])
 	const getOption = () => {
+		let datesMap: { [key: string]: number } = {}
 		let dates: string[] = []
 		let amount: number[] = []
+		let today = new Date()
+		for (let i = 0; i < 30; i++) {
+			dates.push(format(new Date().setDate(today.getDate() - i), "MM/dd/yyyy"))
+			datesMap[format(new Date().setDate(today.getDate() - i), "MM/dd/yyyy")] = 0
+		}
+
 		Object.entries(statesByDate).forEach(entry => {
-			const x = entry[0].toString().slice(0, 10)
-			dates = Array.from(new Set([...dates, x]))
-			const totalAmount = entry[1].reduce((t: number, i: AccountStatementType) => t + parseFloat(String(i.amount)), 0)
-			amount = Array.from(new Set([...amount, totalAmount]))
+			let key = entry[0].slice(0, 10)
+			if (key in datesMap) {
+				amount.push(entry[1].reduce((t: number, i: AccountStatementType) => t + parseFloat(String(i.amount)), 0))
+			} else {
+				amount.push(0)
+			}
 		})
 
 		return {
 			baseOption: {
-				title: {
-					text: 'Statistics Line Chart',
-					left: 10
-				},
 				xAxis: [
 					{
 						axisLabel: {
@@ -40,7 +52,8 @@ const StatisticsPage = () => {
 						},
 						axisLine: {
 							lineStyle:
-								{color: "#aaa"}, show: true
+								{color: "#aaa"},
+							show: true
 						},
 						type: 'category',
 						data: dates,
@@ -53,7 +66,7 @@ const StatisticsPage = () => {
 					axisLabel: {
 						formatter: '$ {value}',
 						align: 'center',
-						interval: 5
+						interval: 20
 					},
 					axisTick: {
 						length: 6,
@@ -68,7 +81,7 @@ const StatisticsPage = () => {
 							color: '#708fe7'
 						},
 						itemStyle: {
-							borderWidth: 30
+							borderWidth: 15
 						},
 						axisLabel: {
 							formatter: '$ {value}',
@@ -91,13 +104,14 @@ const StatisticsPage = () => {
 			media: [
 				{
 					query: {
-						minWidth: 800
+						minWidth: 500
 					},
 					option: {
 						series: [
 							{
-								symbolSize: 20,
-							}
+								symbolSize: 15
+							},
+
 						]
 					}
 				}
@@ -111,10 +125,11 @@ const StatisticsPage = () => {
 				<div className='category-bg'>
 					<CategorySection value={category} onChangeCategory={value => setCategory(value)}/>
 				</div>
-				<div className='final-statistics'>
+				<div className='final-statistics' ref={chartRef}>
+					<h2 className='title'>Statistics for the past 30 days</h2>
 					<ReactECharts
+						className='charts'
 						option={getOption()}
-						style={{height: "50vh", left: 20, right: 30, width: "100vw"}}
 					/>
 				</div>
 			</Layout>

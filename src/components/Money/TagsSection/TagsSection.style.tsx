@@ -4,7 +4,7 @@ const selectedColor = '#5678de'
 
 export const Wrapper = styled.section`
   padding: 12px 16px;
-  overflow-y: scroll;
+  overflow-y: auto;
 	flex-grow: 3;
 	
 
@@ -37,6 +37,5 @@ export const Wrapper = styled.section`
 
     }
   }
-
 
 `

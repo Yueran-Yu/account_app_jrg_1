@@ -36,4 +36,9 @@ button {
   height: 1em;
   display: inline-block; }
 
+@media screen and (min-width: 770px) {
+  #root {
+    width: 500px;
+    margin: 0 auto; } }
+
 /*# sourceMappingURL=index.css.map */

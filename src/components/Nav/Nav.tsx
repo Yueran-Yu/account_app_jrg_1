@@ -3,10 +3,11 @@ import React from "react";
 import {Icon} from './Icon';
 
 const fontMain = '\'Abel\', sans-serif;'
+
 export const NavWrapper = styled.ul`
-	position: fixed;
-	bottom: 0;
-	width: 100%;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -15,7 +16,14 @@ export const NavWrapper = styled.ul`
   line-height: 24px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
   font-family: ${fontMain};
-	background-color: white;
+  background-color: white;
+
+  @media screen and (min-width: 770px) {
+		width:498px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+	
 
   > li > a {
     display: flex;

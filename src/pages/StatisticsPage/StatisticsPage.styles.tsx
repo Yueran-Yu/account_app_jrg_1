@@ -12,11 +12,33 @@ export const StatisticsWrapper = styled.div`
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 10;
+    z-index: 1;
+
+    @media screen and (min-width: 770px) {
+      width: 498px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
 
   .final-statistics {
-    margin: 150px 0;
-		padding-bottom: 200px;
+    padding-top: 150px;
+    padding-bottom: 20px;
+
+    .title {
+      position: relative;
+      margin: 20px auto;
+    }
+
+    .charts {
+      height: 50vh;
+      left: 10px;
+      right: 10px;
+      width: 200vw;
+			overflow: scroll;
+      background-color: #efefef;
+    }
   }
+
+
 `
