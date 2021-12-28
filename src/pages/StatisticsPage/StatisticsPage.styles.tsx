@@ -22,7 +22,7 @@ export const StatisticsWrapper = styled.div`
   }
 
   .final-statistics {
-    padding-top: 150px;
+    padding-top: 16vh;
     padding-bottom: 20px;
 
     .title {

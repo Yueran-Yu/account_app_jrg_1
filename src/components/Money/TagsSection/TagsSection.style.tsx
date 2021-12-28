@@ -5,8 +5,8 @@ const selectedColor = '#5678de'
 export const Wrapper = styled.section`
   padding: 12px 16px;
   overflow-y: auto;
-	flex-grow: 3;
-	
+  flex-grow: 3;
+  background-color: white;
 
   > ol {
     display: grid;

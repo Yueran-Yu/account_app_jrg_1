@@ -175,7 +175,7 @@ export const NumberPadSection: React.FC<NumberPadProps> = (props) => {
 				<button>C</button>
 				<button>0</button>
 				<button>.</button>
-				<button type='submit' className='ok'>{btn}</button>
+				<button className='ok'>{btn}</button>
 			</div>
 		</Wrapper>
 	)

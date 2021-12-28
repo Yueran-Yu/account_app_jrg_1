@@ -26,12 +26,12 @@ const StatisticsPage = () => {
 		let amount: number[] = []
 		let today = new Date()
 		for (let i = 0; i < 30; i++) {
-			dates.push(format(new Date().setDate(today.getDate() - i), "MM/dd/yyyy"))
-			datesMap[format(new Date().setDate(today.getDate() - i), "MM/dd/yyyy")] = 0
+			dates.push(format(new Date().setDate(today.getDate() - i), "MM/dd"))
+			datesMap[format(new Date().setDate(today.getDate() - i), "MM/dd")] = 0
 		}
 
 		Object.entries(statesByDate).forEach(entry => {
-			let key = entry[0].slice(0, 10)
+			let key = entry[0].slice(0,5)
 			if (key in datesMap) {
 				amount.push(entry[1].reduce((t: number, i: AccountStatementType) => t + parseFloat(String(i.amount)), 0))
 			} else {
