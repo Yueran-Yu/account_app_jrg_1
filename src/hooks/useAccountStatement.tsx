@@ -26,7 +26,7 @@ const useAccountStatement = () => {
 			alert('Saved Successfully')
 		}
 	}
-	const statesSortedByCate = (category: Category)=>  accountStatements.filter((state) => (state.category === category)).sort((a, b) => +new Date(b.date) - +new Date(a.date))
+	const statesSortedByDate = (category: Category)=>  accountStatements.filter((state) => (state.category === category)).sort((a, b) => +new Date(b.date) - +new Date(a.date))
 
 
 	const dateAsKeyStatements =(states: AccountStatementType[])=> states.reduce((state: { [key: string]: AccountStatementType[] }, current) => {
@@ -35,7 +35,6 @@ const useAccountStatement = () => {
 		state[d].push({...current})
 		return state
 	}, {})
-
 
 	const getStatementDetail = (id: number) => accountStatements.find(state => state.uniqueId === id)
 
@@ -52,7 +51,7 @@ const useAccountStatement = () => {
 	return {
 		currentState,
 		setCurrentState,
-		statesSortedByCate,
+		statesSortedByDate,
 		dateAsKeyStatements,
 		accountStatements,
 		setAccountStatements,

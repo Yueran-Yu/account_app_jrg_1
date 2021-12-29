@@ -84,7 +84,7 @@ const StateDetails = () => {
 									 value={stateDet.note}
 									 name='note'
 									 onChange={onChange}/>
-				<div className=' ddd'>
+				<div className='btn-wrapper'>
 					<Button type="submit">Save</Button>
 					<Button type="button" onClick={(e)=>onDelete(e,stateDet.uniqueId)}>Delete</Button>
 				</div>

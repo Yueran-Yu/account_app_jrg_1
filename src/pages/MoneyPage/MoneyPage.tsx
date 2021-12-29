@@ -6,11 +6,11 @@ import {DateSection} from "../../components/Money/DateSection/DateSection";
 import {NumberPadSection} from "../../components/Money/NumberSection/NumberPadSection";
 import {MyLayout, NoteDateWrapper} from "./MoneyPage.styles";
 import useAccountStatement from "../../hooks/useAccountStatement";
-import { DateWrapper } from "components/Money/DateSection/DateSection.style";
+import {DateWrapper} from "components/Money/DateSection/DateSection.style";
 import generateRandomNumber from "../../utils/IdGenerator";
 
 export const defaultFormData = {
-	uniqueId:0,
+	uniqueId: 0,
 	tagId: 0,
 	note: '',
 	date: new Date(),
@@ -51,14 +51,14 @@ const MoneyPage = () => {
 					value={selected.note}
 					onChangeNote={newNote => onChangeTemplate({note: newNote})}/>
 				<DateWrapper>
-				<DateSection
-					value={selected.date}
-					onChangeDate={newDate => onChangeTemplate({date: newDate})}/>
+					<DateSection
+						value={selected.date}
+						onChangeDate={newDate => onChangeTemplate({date: newDate})}/>
 				</DateWrapper>
 			</NoteDateWrapper>
 			<NumberPadSection
 				value={selected.amount}
-				onChange={newAmount => onChangeTemplate({amount: newAmount})}
+				onChange={newAmount => onChangeTemplate({amount: parseFloat(newAmount.toFixed(2))})}
 				onOk={submit}/>
 		</MyLayout>
 	)

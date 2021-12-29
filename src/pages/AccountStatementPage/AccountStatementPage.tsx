@@ -10,9 +10,9 @@ import {Layout} from "../../components/Layout";
 
 const AccountStatementPage = () => {
 	const [category, setCategory] = useState<Category>('-')
-	const {disPlayStatementTags, dateAsKeyStatements, statesSortedByCate} = useAccountStatement()
+	const {disPlayStatementTags, dateAsKeyStatements, statesSortedByDate} = useAccountStatement()
 	const {expenseTags, incomeTags} = useTagsListContext()
-	const states = statesSortedByCate(category)
+	const states = statesSortedByDate(category)
 	const dateAsKeyStates = dateAsKeyStatements(states)
 
 	const showTodayString = (date: string) => {

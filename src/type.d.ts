@@ -1,4 +1,3 @@
-
 type Category = '-' | '+'
 
 type ParamsProps = {
@@ -47,8 +46,7 @@ type TagsListContextType = {
 	TotalIncomeTagsList: MyTag[]
 }
 
-
-type ButtonType={
+type ButtonType = {
 	typeD: string
 	children: ReactElement
 }
@@ -66,11 +64,13 @@ type AccountStatementType = {
 	amount: number
 }
 
-type X = {
-	[key: string]: {}
-}
-
 type InputType = {
 	label: string
-	classN:string
+	classN: string
 } & React.InputHTMLAttributes<HTMLInputElement>
+
+
+type ChartType = [
+	keys: string[],
+	values: number[]
+]

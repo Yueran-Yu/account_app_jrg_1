@@ -4,7 +4,6 @@ export const StatisticsWrapper = styled.div`
   text-align: center;
   background: white;
 
-
   .category-bg {
     background: #f3f3f3;
     padding-bottom: 4px;
@@ -24,6 +23,7 @@ export const StatisticsWrapper = styled.div`
   .final-statistics {
     padding-top: 16vh;
     padding-bottom: 20px;
+		height: 100vh;
 
     .title {
       position: relative;
@@ -31,18 +31,17 @@ export const StatisticsWrapper = styled.div`
     }
 
     .charts {
-      height: 50vh;
-      left: 10px;
-      right: 10px;
-      width: 200vw;
       overflow: scroll;
       background-color: #f6f6f6;
+			
+
+      @media screen and (min-width: 770px) {
+        width: 100vw;
+      }
 
       &::-webkit-scrollbar {
         display: none;
       }
     }
   }
-
-
 `

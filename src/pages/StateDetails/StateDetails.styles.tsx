@@ -4,7 +4,6 @@ export const StateDetailsWrapper = styled.div`
   text-align: center;
   background-color: white;
   height: 100vh;
-  position: relative;
 
   .qqq {
     background-color: #7a9cff;
@@ -81,14 +80,13 @@ export const StateDetailsWrapper = styled.div`
       }
     }
 
-    .ddd {
+    .btn-wrapper {
       display: flex;
+      height: 35vh;
       flex-direction: row;
-      width: 100vw;
       justify-content: space-around;
       align-items: end;
-      position: absolute;
-      bottom: 45px;
+
     }
   }
 `
