@@ -11,7 +11,11 @@ export const DateWrapper = styled.div`
     margin-top: 5px;
     margin-right: 5px;
     border-radius: 3px;
+		height: 25px;
+		font-size: 15px;
     font-weight: 700;
     padding: 0 5px;
   }
+	
+	
 `
