@@ -9,12 +9,12 @@ export const NoteSection: React.FC<NoteProps> = ({value, onChangeNote}) => {
 		<Wrapper>
 			<label>
 				<RiStickyNoteLine className='note'/>
+			</label>
 				<input type="text"
 							 placeholder='Add note here'
 							 value={value}
 							 onChange={(e: ChangeEvent<HTMLInputElement>)=>onChangeNote(e.target.value)}
 				/>
-			</label>
 		</Wrapper>
 	)
 }
