@@ -20,7 +20,6 @@ const AccountStatementPage = () => {
 		const yesterday = (d => new Date(d.setDate(d.getDate() - 1)))(new Date()).toLocaleDateString().slice(0, 10)
 		const tomorrow = (d => new Date(d.setDate(d.getDate() + 1)))(new Date()).toLocaleDateString().slice(0, 10)
 		const currentDate = date.slice(0, 10)
-
 		if (today === currentDate) {
 			return 'Today'
 		} else if (yesterday === currentDate) {

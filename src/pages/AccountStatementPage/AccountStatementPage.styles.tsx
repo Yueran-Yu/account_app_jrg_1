@@ -19,7 +19,7 @@ export const AccountWrapper = styled.div`
     z-index: 1;
 
     @media screen and (min-width: 770px) {
-      width:498px;
+      width: 498px;
       left: 50%;
       transform: translateX(-50%);
     }
@@ -34,9 +34,9 @@ export const AccountWrapper = styled.div`
 
     .date {
       padding: 8px 15px;
-      margin-bottom: 10px;
+      margin-bottom: 5px;
       text-align: start;
-      font-size: 13px;
+      font-size: 16px;
       color: #8c8c8c;
       box-shadow: rgba(24, 24, 24, 0.1) 1px 1px 2px 1px;
     }
@@ -45,8 +45,9 @@ export const AccountWrapper = styled.div`
       display: flex;
       justify-content: space-around;
       padding: 5px 20px;
-      line-height: 25px;
-      font-size: 16px;
+      line-height: 30px;
+      font-size: 18px;
+
 
       .icon-note {
         width: 80%;
