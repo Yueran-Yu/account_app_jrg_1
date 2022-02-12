@@ -1,6 +1,7 @@
 import {Nav} from "./Nav/Nav";
 import React, {useLayoutEffect, useState} from "react";
 import styled from "styled-components";
+import QRCodeView from "./QRCodeView/QRCodeView";
 
 const Wrapper = styled.div`
   display: flex;
@@ -11,7 +12,7 @@ const Wrapper = styled.div`
 const Main = styled.div`
   flex-grow: 1;
   overflow: auto;
-	
+
 `
 
 interface WindowSize {
@@ -41,7 +42,7 @@ export const useWindowSize = (): WindowSize => {
 }
 
 export const Layout = ({children, className}: any) => {
-	const {height} = useWindowSize()
+	const {width, height} = useWindowSize()
 
 	/* Here is the second way to set the responsive height in mobile browser*/
 	// First we get the viewport height and we multiple it by 1% to get a value for a vh unit
@@ -50,11 +51,16 @@ export const Layout = ({children, className}: any) => {
 	//document.documentElement.style.setProperty('--vh', `${vh}px`);
 
 	return (
-		<Wrapper style={{height: height}}>
-			<Main className={className}>
-				{children}
-			</Main>
-			<Nav/>
-		</Wrapper>
+		<>
+			{width > 420 ?
+				<QRCodeView/> :
+				<Wrapper style={{height: height}}>
+					<Main className={className}>
+						{children}
+					</Main>
+					<Nav/>
+				</Wrapper>
+			}
+		</>
 	)
 }
