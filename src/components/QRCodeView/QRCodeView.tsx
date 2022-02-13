@@ -6,7 +6,7 @@ const QRCodeView = () => {
 	return (
 		<QRWrapper>
 			<ContextWrapper>
-				<h2>Welcome visiting Spending App</h2>
+				<h2>Welcome visiting GY Spending App</h2>
 				<h3>Scan the QR Code with your mobile phone camera so you can use it on mobile.</h3>
 				<h3>Thank you.</h3>
 			</ContextWrapper>
