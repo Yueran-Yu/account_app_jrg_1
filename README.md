@@ -3,7 +3,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Auto Build to Netlify Command
-```sh scripts/deploy.sh```
+```sh scripts/push-to-gh.sh```
 
 
 ## Available Scripts
